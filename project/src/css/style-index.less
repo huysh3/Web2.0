@@ -1,18 +1,27 @@
-/**
- * @name: Test Project
- * @description: This is a demo use of `Gulp Workflow`
- * @author: littledu
- */
-
-/* Import Less files */
-
 @import "lib-mixins";
 @import "lib-reset";
 
-/* Import lib-rem.less if supportREM opened. */
-/* @import "lib-rem"; */
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
 
-/* Import modules like `header.less` */
+.left-nav {
+  flex: 2;
+  background-color: rgb(235, 88, 91);
+  img {
+    width: 4rem;
+    height: 4rem;
+  }
+}
 
-@import "header";
-@import "tips";
+.main-content {
+  flex: 6;
+  background-color: rgb(80, 150, 24);
+
+}
+
+.center {
+  text-align: center;
+}
