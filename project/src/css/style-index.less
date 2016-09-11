@@ -1,5 +1,16 @@
 @import "lib-mixins";
 @import "lib-reset";
+@import "lib-rem";
+@import "lib-card";
+
+ul li {
+  list-style-type: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
 
 .container {
   display: flex;
@@ -11,15 +22,39 @@
   flex: 2;
   background-color: rgb(235, 88, 91);
   img {
-    width: 4rem;
-    height: 4rem;
+    width: 40%;
+    border-radius: 50%;
+    margin-top: 2rem;
+  }
+  .desc {
+    color: #fff;
+  }
+  p {
+    line-height: 1.4rem;
+    letter-spacing: .04rem;
+  }
+  li {
+    height: 2rem;
+    line-height: 2rem;
+    color: #fff;
+    font-size: .8rem;
+    transition: all .4s ease;
+    cursor: pointer;
+  }
+  li:hover {
+    background-color: rgb(200, 73, 76);
+    color: rgb(56, 244, 193);
   }
 }
 
 .main-content {
-  flex: 6;
-  background-color: rgb(80, 150, 24);
-
+  flex: 7;
+  background-color: rgb(24, 78, 150);
+  padding: 1rem;
+  .card {
+    width: 30%;
+    float: left;
+  }
 }
 
 .center {
