@@ -3,6 +3,12 @@
 @import "lib-rem";
 @import "lib-card";
 
+body {
+  background-color: rgb(24, 78, 150);
+  height: 100vh;
+  overflow: hidden;
+}
+
 ul li {
   list-style-type: none;
 }
@@ -19,6 +25,7 @@ ul {
 }
 
 .left-nav {
+  height: 100vh;
   flex: 2;
   background-color: rgb(235, 88, 91);
   img {
@@ -45,11 +52,16 @@ ul {
     background-color: rgb(200, 73, 76);
     color: rgb(56, 244, 193);
   }
+  .on {
+    background-color: rgb(200, 73, 76);
+    color: rgb(56, 244, 193);
+  }
 }
 
 .main-content {
   flex: 7;
   background-color: rgb(24, 78, 150);
+  height: calc(~'100vh - 2rem');
   padding: 1rem;
   .card {
     width: 30%;
@@ -59,4 +71,20 @@ ul {
 
 .center {
   text-align: center;
+}
+
+// basic-skill content
+.basic-skill-content {
+  .card {
+    margin-right: 1rem;
+  }
+}
+
+.homework-content {
+  a {
+    background-color: #fff;
+    padding: .2rem 1rem;
+    display: block;
+  }
+
 }

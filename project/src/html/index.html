@@ -17,30 +17,86 @@
             Just want to be a frontend engineer.
           </p>
         </div>
-        <section class="list">
+        <section id="nav-list" class="list">
           <ul>
-            <li>Basic Skills</li>
-            <li>Frontend Framework</li>
-            <li>Experience</li>
-            <li>HomeWork</li>
-            <li>Buy me a coffee</li>
-            <li>Contact me</li>
+            <li id="basic-skills">Basic Skills</li>
+            <li id="defects">Defects</li>
+            <li id="experience">Experience</li>
+            <li id="homework">HomeWork</li>
+            <li id="coffee">Buy me a coffee</li>
+            <li id="contact-me">Contact me</li>
           </ul>
         </section>
       </nav>
       <div class="basic-skill-content main-content">
         <div class="card">
           <header class="card-header">
-            dsf
+            HTML
           </header>
           <div class="card-body">
-
+            <span>ejs</span>
+            <!-- <span>HTML5</span> -->
+            <span>Django template</span>
+            <span>PHP template</span>
           </div>
           <div class="card-footer">
 
           </div>
         </div>
+        <div class="card">
+          <header class="card-header">
+            CSS
+          </header>
+          <div class="card-body">
+            <span>BootStrap</span>
+            <span>LESS</span>
+            <span>Simple animation</span>
+          </div>
+          <div class="card-footer">
+
+          </div>
+        </div>
+        <div class="card">
+          <header class="card-header">
+            JavaScript
+          </header>
+          <div class="card-body">
+            <span>jQuery</span>
+            <span>Zepto</span>
+            <span>Vue</span>
+            <span>iScroll</span>
+            <span>tmtFlow</span>
+          </div>
+          <div class="card-footer">
+          </div>
+        </div>
+
+      </div>
+      <div class="homework-content main-content" style="display: none;">
+        <a href="#"><span>Homework1: Grandma's Pie</span></a>
       </div>
     </div>
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript">
+    $('#basic-skills').click(function() {
+      $('#nav-list li').removeClass('on')
+      $(this).addClass('on')
+      $('.main-content').fadeOut()
+      setTimeout(function() {
+        $('.basic-skill-content').fadeIn();
+      }, 400)
+    })
+    $('#homework').click(function() {
+      $('#nav-list li').removeClass('on')
+      $(this).addClass('on')
+      $('.main-content').fadeOut();
+      setTimeout(function() {
+        $('.homework-content').fadeIn();
+      }, 400)
+    })
+    $('#defects, #experience, #coffee, #contact-me').click(function() {
+      alert('To be continue..')
+    })
+  </script>
   </body>
 </html>
