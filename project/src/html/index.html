@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <meta name="full-screen" content="yes">
-    <title></title>
+    <title>Wilson.Hu</title>
+    <link rel="shortcut icon" href="http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/pie_icon.gif" type="image/x-icon"/>
     <link rel="stylesheet" href="../css/style-index.css" media="screen" title="no title">
   </head>
   <body>
@@ -17,7 +18,7 @@
             Just want to be a frontend engineer.
           </p>
         </div>
-        <section id="nav-list" class="list">
+        <div id="nav-list" class="list">
           <ul>
             <li id="basic-skills">Basic Skills</li>
             <li id="defects">Defects</li>
@@ -26,46 +27,57 @@
             <li id="coffee">Buy me a coffee</li>
             <li id="contact-me">Contact me</li>
           </ul>
-        </section>
+        </div>
       </nav>
       <div class="basic-skill-content main-content">
-        <div class="card">
+        <div class="card vertical-center">
           <header class="card-header">
             HTML
           </header>
           <div class="card-body">
-            <span>ejs</span>
-            <!-- <span>HTML5</span> -->
+            <span>HTML5</span>
+            <span>ejs template</span>
             <span>Django template</span>
             <span>PHP template</span>
+            <br/>
+            <span>To Be Continue..</span>
           </div>
           <div class="card-footer">
 
           </div>
         </div>
-        <div class="card">
+        <div class="card vertical-center">
           <header class="card-header">
             CSS
           </header>
           <div class="card-body">
-            <span>BootStrap</span>
+            <span>CSS3</span>
             <span>LESS</span>
+            <span>WeUI</span>
+            <span>BootStrap</span>
+            <span>Materialize</span>
             <span>Simple animation</span>
+            <span>Browser Rendering Process</span>
+            <br/>
+            <span>To Be Continue..</span>
           </div>
           <div class="card-footer">
 
           </div>
         </div>
-        <div class="card">
+        <div class="card vertical-center">
           <header class="card-header">
             JavaScript
           </header>
           <div class="card-body">
+            <span>Gulp</span>
             <span>jQuery</span>
             <span>Zepto</span>
             <span>Vue</span>
             <span>iScroll</span>
-            <span>tmtFlow</span>
+            <span>chartJS</span>
+            <br/>
+            <span>To Be Continue..</span>
           </div>
           <div class="card-footer">
           </div>
@@ -73,7 +85,10 @@
 
       </div>
       <div class="homework-content main-content" style="display: none;">
-        <a href="#"><span>Homework1: Grandma's Pie</span></a>
+        <a href="./pie.html"><span>Homework1: Grandma's Pie</span></a>
+      </div>
+      <div class="coffee-content main-content" style="display: none;">
+        <img class="all-center" src="../img/coffee.png" alt="" />
       </div>
     </div>
   <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
@@ -94,7 +109,15 @@
         $('.homework-content').fadeIn();
       }, 400)
     })
-    $('#defects, #experience, #coffee, #contact-me').click(function() {
+    $('#coffee').click(function() {
+      $('#nav-list li').removeClass('on')
+      $(this).addClass('on')
+      $('.main-content').fadeOut();
+      setTimeout(function() {
+        $('.coffee-content').fadeIn();
+      }, 400)
+    })
+    $('#defects, #experience, #contact-me').click(function() {
       alert('To be continue..')
     })
   </script>
