@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+}
+
+li {
+  list-style-type: none;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  background: url('../img/atplus_white.png') no-repeat;
+  background-size: 28px 20px;
+  background-position: center;
+  border-radius: 100%;
+  background-color: #999;
+  position: absolute;
+  top: 350px;
+  left: 48%;
+  transition: all .5s ease;
+}
+
+#info-bar {
+  background-color: #999;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  transform: translate(-50%, 300px) scale(0.1);
+  border-radius: 100%;
+  position: absolute;
+  // left: 49.5%;
+  // top: 90px;
+  text-align: center;
+  transition: all .5s ease;
+  span {
+    color: #fff;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  li {
+    margin-left: -50px;
+  }
+  .user {
+    margin-top: -10px;
+  }
+  .comment span {
+    font-size: 40px;
+    font-weight: 800;
+  }
+  .posted {
+    float: left;
+    margin-left: -25px;
+    span {
+      color: #079E6E;
+    }
+  }
+  .like {
+    float: right;
+    margin-right: 20px;
+    span {
+      color: #079E6E;
+    }
+  }
+}
+
+// #info-bar {
+//   transform: scale(0.1);
+// }
+
+#control-ring-container {
+  position: absolute;
+  top: 140px;
+  left: 45%;
+  li {
+    width: 40px;
+    height: 40px;
+    background-color: #999;
+    border-radius: 100%;
+    background-position: center;
+    padding: 4px;
+    position: absolute;
+    top: 215px;
+    transition: all .5s ease;
+  }
+}
+
+.mask {
+  background: url('../img/mask.png') no-repeat;
+}
+
+.history {
+  background: url('../img/history.png') no-repeat;
+}
+
+.message {
+  background: url('../img/message.png') no-repeat;
+  .unread {
+    text-align: center;
+    line-height: 14px;
+    font-size: 14px;
+    color: #fff;
+    background-color: red;
+    padding: 2px;
+    display: inline-block;
+    border-radius: 100%;
+    width: 14px;
+    height: 14px;
+    position: relative;
+    left: 15px;
+    bottom: 10px;
+  }
+}
+
+.setting {
+  background: url('../img/setting.png') no-repeat;
+}
+
+.sign {
+  background: url('../img/signin.png') no-repeat;
+}
+
+#bottom-positioner:hover {
+  .icon {
+    background: url('../img/atplus_green.png') no-repeat;
+    background-position: center;
+    background-size: 28px 20px;
+    background-color: rgba(48, 63, 159, 1);
+    transform: scale(1.3);
+  }
+  #info-bar {
+    transform: translate(-75px, 170px);
+  }
+  .mask {
+    transform: translate(-80px, -35px);
+  }
+  .history {
+    transform: translate(-90px, 17px);
+  }
+  .message {
+    transform: translate(-65px, 65px);
+  }
+  .setting {
+    transform: translate(-15px, 84px);
+  }
+  .sign {
+    transform: translate(38px, 75px);
+  }
+}

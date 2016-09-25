@@ -1,0 +1,200 @@
+@blue: rgba(48, 63, 159, 1);
+@green: #079E6E;
+@gray: #999;
+
+/*  INIT
+ *  init ul,li style, keep @+container center(horizental & vertical),
+ *  make li img opacity == 0
+ *
+ */
+ul, li {
+  padding: 0;
+  list-style-type: none;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+#at-plus-container {
+  display: inline-block;
+  position: absolute;
+  top: 37%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#info-bar {
+  position: absolute;
+}
+
+.apb {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-93%, 5%);
+}
+
+.icon {
+  background: url('../img/atplus_white.png') no-repeat;
+  background-size: 30px 20px;
+  padding: 10px;
+  width: 35px;
+  height: 35px;
+  background-color: gray;
+  border-radius: 50%;
+  transition: all .5s ease;
+  background-position: center;
+}
+
+#bottom-positioner:hover {
+  .icon {
+    background: url('../img/atplus_green.png') no-repeat;
+    background-size: 35px 24px;
+    background-color: @blue;
+    background-position: center;
+    transform: scale(1.4);
+  }
+
+  .icon::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -40px;
+    width: 100px;
+    height: 200px;
+  }
+
+  .info {
+    padding: 7px 0;
+    width: 170px;
+    height: 150px;
+    transform: translate(-5%, -140px);
+  }
+  .mask, .history, .message, .setting, .sign {
+    transform: translate(0, 0);
+  }
+  .unread {
+    transform: scale(1);
+    opacity: 1
+  }
+}
+
+// info module
+.info {
+  background-color: #999;
+  text-align: center;
+  border-radius: 50%;
+  padding: 7px 0;
+  width: 170px;
+  height: 150px;
+  overflow: hidden;
+  position: absolute;
+  left: -100px;
+  top: -50px;
+  transform: scale(0.1);
+  transition: all .5s ease;
+  span {
+    color: #fff;
+    position: relative;
+    bottom: 10px;
+    margin-left: 10px;
+  }
+}
+
+.user span {
+  font-size: 25px;
+}
+
+.comment span {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.posted {
+  float: left;
+  margin-left: 30px;
+  span {
+    color: @green;
+    font-weight: bold;
+  }
+}
+
+.like {
+  float: right;
+  margin-right: 30px;
+  span {
+    font-weight: bold;
+    color: @green;
+  }
+}
+
+
+#control-ring li {
+  width: 40px;
+  height: 40px;
+  background-color: #999;
+  background-position: center;
+  border-radius: 50%;
+  position: absolute;
+  transition: all .5s ease;
+}
+
+
+.mask {
+  background: url('../img/mask.png') no-repeat;
+  right: 90px;
+  top: -5px;
+  transform: scale(0.1);
+  transform: translate(90px, 30px);
+}
+
+.history {
+  background: url('../img/history.png') no-repeat;
+  right: 100px;
+  top: 50px;
+  transform: scale(0.1);
+  transform: translate(95px, -30px);
+}
+
+.message {
+  background: url('../img/message.png') no-repeat;
+  right: 75px;
+  transform: scale(0.1);
+  top: 95px;
+  transform: translate(65px, -70px);
+  .unread {
+    width: 14px;
+    height: 14px;
+    padding: 2px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 14px;
+    color: #fff;
+  }
+}
+
+.setting {
+  background: url('../img/setting.png') no-repeat;
+  right: 20px;
+  top: 110px;
+  transform: scale(0.1);
+  transform: translate(20px, -85px);
+}
+
+.sign {
+  background: url('../img/signin.png') no-repeat;
+  right: -35px;
+  top: 100px;
+  transform: scale(0.1);
+  transform: translate(-38px, -78px);
+}
