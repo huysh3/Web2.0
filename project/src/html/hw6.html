@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="full-screen" content="yes">
+    <title></title>
+    <link rel="stylesheet" href="../css/style-hw6.css" media="screen" title="no title">
+  </head>
+  <body>
+    <section class="container1">
+      <div class="center-card">
+        <header>
+          The Amazing Mouse Mase!
+        </header>
+        <div class="desc">
+          <p class="default">
+            Move your mouse over the 's' to begin.<br>
+            Don't cheat, You should start from the 's' and move to the 'E' inside the maze!
+          </p>
+          <p class="game-start">
+            Game Start!
+          </p>
+          <p class="game-complete">
+            Mission Complete!
+          </p>
+          <p class="game-end">
+            Loser..
+          </p>
+          <p class="game-cheat">
+            YOU'RE CHEATING!!!
+          </p>
+        </div>
+        <div class="maze-content">
+          <div class="paths">
+            <div class="path1"></div>
+            <div class="path2"></div>
+            <div class="path3"></div>
+            <div class="path4"></div>
+            <div class="path5"></div>
+            <div class="start">S</div>
+            <div class="end">E</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container2">
+      <div class="center-card">
+
+      </div>
+    </section>
+  </body>
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript">
+    var isCheat = false;
+    var isLose = false;
+    var isActive = false;
+    function init() {
+      $('.desc p').hide();
+      $('.default').show();
+    };
+    function start() {
+      isCheat = false;
+      isLose = false;
+      isActive = true;
+      $('.desc p').fadeOut();
+      setTimeout(function() {
+        $('.game-start').fadeIn();
+      }, 500);
+    };
+    function win() {
+      if (isActive) {
+        $('.desc p').fadeOut();
+        setTimeout(function() {
+          $('.game-complete').fadeIn();
+        }, 500);
+      }
+      isActive = false;
+    };
+    function lose() {
+      if (isActive) {
+        $('.desc p').fadeOut();
+        setTimeout(function() {
+          $('.game-end').fadeIn();
+        }, 500);
+      }
+      isActive = false;
+    };
+    // function ifCheat() {
+    //   $('.maze-content').mouseleave(function() {
+    //     return true;
+    //   })
+    // };
+    function cheat() {
+      if (isActive) {
+        $('.desc p').fadeOut();
+        setTimeout(function() {
+          $('.game-cheat').fadeIn();
+        }, 500);
+      }
+      isActive = false;
+    };
+    $(document).ready(function() {
+      init();
+      // 游戏开始
+      $('.start').mouseenter(function() {
+        start();
+        // 输了
+        $('.paths').mouseleave(function() {
+          lose();
+          // 出去了
+          $('.maze-content').mouseleave(function() {
+            isCheat = true;
+            cheat()
+          })
+          // 还在里面
+          $('.maze-content').hover(function() {
+          })
+        });
+        // 赢了
+        $('.end').mouseenter(function() {
+          console.log('isCheat' + isCheat)
+          if (!isLose && !isCheat) {
+            win();
+          }
+        });
+      });
+    });
+  </script>
+</html>

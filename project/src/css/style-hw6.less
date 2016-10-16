@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  height: 190vh;
+  overflow-x: hidden;
+}
+
+section {
+  position: relative;
+}
+
+.container1, .container2 {
+  width: 70vw;
+  height: 70vh;
+  padding: 15vh 15vw;
+  text-align: center;
+  .center-card {
+    width: 65vw;
+    height: 65vh;
+    padding: 2.5vh 2.5vw;
+    background-color: #fff;
+    box-shadow: 0px 0px 70px #222;
+  }
+  header {
+    font-size: 40px;
+  }
+}
+
+.container1 {
+  background-color: rgb(174, 194, 45);
+  .maze-content {
+    width: 60vw;
+    height: 45vh;
+    background-color: rgb(58, 134, 33);
+    display: inline-block;
+    position: relative;
+  }
+  .path1, .path2, .path3, .path4, .path5 {
+    background-color: rgb(29, 208, 213);
+    position: absolute;
+  }
+  .path1 {
+    height: 10vh;
+    width: 20vw;
+    bottom: 10vh;
+  }
+  .path2 {
+    width: 20vw;
+    height: 10vh;
+    right: 0;
+    bottom: 10vh;
+  }
+  .path3 {
+    width: 30vw;
+    height: 10vh;
+    left: 15vw;
+  }
+  .path4 {
+    width: 10vh;
+    height: 30vh;
+    left: 15vw;
+    top: 5vh;
+  }
+  .path5 {
+    width: 10vh;
+    height: 30vh;
+    right: 15vw;
+    top: 5vh;
+  }
+  .start, .end {
+    width: 10vh;
+    height: 10vh;
+    background-color: rgb(216, 241, 157);
+    line-height: 10vh;
+    font-weight: bold;
+    font-size: 40px;
+    position: absolute;
+  }
+  .desc {
+    height: 7vh;
+    padding: 2vh 0;
+    transition: all .4s ease;
+    p {
+      margin: 0;
+      display: none;
+    }
+  }
+  .start {
+    top: 25vh;
+  }
+  .end {
+    top: 25vh;
+    right: 0;
+  }
+}
+
+.container2 {
+  background-color: rgb(0, 145, 181);
+}

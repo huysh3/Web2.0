@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="../css/style-hw5.css" media="screen" title="no title">
+  </head>
+  <body>
+    <div class="container">
+      <div class="panel">0</div>
+      <section class="btn-area">
+        <div class="number-btn">1</div>
+        <div class="number-btn">2</div>
+        <div class="number-btn">3</div>
+        <div class="number-btn">4</div>
+        <div class="number-btn">5</div>
+        <div class="number-btn">6</div>
+        <div class="number-btn">7</div>
+        <div class="number-btn">8</div>
+        <div class="number-btn">9</div>
+        <div class="number-btn">0</div>
+        <div class="number-btn">.</div>
+      <!-- </section>
+      <section class="operator-area"> -->
+        <div class="operator-btn">+</div>
+        <div class="operator-btn">-</div>
+        <div class="operator-btn">*</div>
+        <div class="operator-btn">/</div>
+        <div class="operator-btn">(</div>
+        <div class="operator-btn">)</div>
+      <!-- </section>
+      <section class="option-area"> -->
+        <div class="back-btn">←</div>
+
+        <div class="equal-btn">=</div>
+        <div class="clear-btn">CE</div>
+      </section>
+    </div>
+  <script src="../js/zepto.1.1.6.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    Zepto(function() {
+      var expr = '';
+      $('.number-btn, .operator-btn').click(function() {
+        expr += $(this).html();
+        $('.panel').html(expr);
+      });
+      $('.equal-btn').click(function() {
+        try {
+          expr = eval($('.panel').html());
+          $('.panel').html(expr);
+        } catch(e) {
+          alert('算式不合法，请检查算式')
+        }
+
+      });
+      $('.back-btn').click(function() {
+
+        expr = expr.substring(0, expr.length-1)
+        $('.panel').html(expr)
+      });
+      $('.clear-btn').click(function() {
+        expr = '';
+        $('.panel').html('0');
+      })
+    })
+  </script>
+  </body>
+</html>
