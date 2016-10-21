@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Maze</title>
+    <link rel="stylesheet" href="../css/style-hh-hw6.css" media="screen" title="no title">
+  </head>
+  <body>
+    <section class="container1">
+      <div class="center-card">
+        <header>
+          The Amazing Mouse Mase!
+        </header>
+        <div class="desc">
+          <p class="default">
+            Move your mouse over the 's' to begin.<br>
+            Don't cheat, You should start from the 's' and move to the 'E' inside the maze!
+          </p>
+          <p class="game-start">
+            now game start~
+          </p>
+          <p class="game-complete">
+            okay, you win..
+          </p>
+          <p class="game-end">
+            you lose
+          </p>
+        </div>
+        <div class="maze-content">
+          <div class="paths">
+            <div class="path path1"></div>
+            <div class="path path2"></div>
+            <div class="path path3"></div>
+            <div class="path path4"></div>
+            <div class="path path5"></div>
+            <div class="start">Start</div>
+            <div class="end">End</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </body>
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript">
+    var isLose = false;
+    var isActive = false;
+    $(document).ready(function() {
+      $('.desc p').hide();
+      $('.default').show();
+      $('.start').mouseenter(function() {
+        isLose = false;
+        isActive = true;
+        $('.desc p').hide();
+        $('.game-start').show();
+        $('.paths').mouseleave(function() {
+          if (isActive) {
+            $('.desc p').hide();
+            $('.game-end').show();
+          }
+          isActive = false;
+        });
+        $('.end').mouseenter(function() {
+          if (!isLose) {
+            if (isActive) {
+              $('.desc p').hide();
+              $('.game-complete').show();
+            }
+            isActive = false;
+          }
+        });
+      });
+    });
+  </script>
+</html>

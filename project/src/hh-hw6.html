@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>mouse</title>
+    <script src="http://cdn.bootcss.com/less.js/3.0.0-pre.3/less.js"></script>
+    <link rel="stylesheet" href="../css/style-hw6.css" media="screen" title="no title">
+  </head>
+  <body>
+    <section class="container2">
+      <div class="center-card">
+        <header>
+          <div class="mouse-start">Start!</div>
+          <div class="timer">30</div>
+          <div class="score">0</div>
+        </header>
+        <div class="mouse-content">
+          <span class="hole1"></span>
+          <span class="hole2"></span>
+          <span class="hole3"></span>
+          <span class="hole4"></span>
+          <span class="hole5"></span>
+          <span class="hole6"></span>
+          <span class="hole7"></span>
+          <span class="hole8"></span>
+          <span class="hole9"></span>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript">
+    var time = 30;
+    var score = 0;
+    function mouseInit() {
+      time = 30;
+      score = 0;
+      $('.mouse-content span').removeClass('active');
+      $('.hole' + getRandom(20)).addClass('active');
+      setInterval(function() {
+        time --;
+        if (time >= 0) {
+          $('.timer').html(time)
+        } else {
+          alert('TimeOver and Your score is: ' + score)
+          window.location.reload()
+        }
+      }, 1000)
+    };
+    function getRandom(n){
+      return Math.floor(Math.random()*n+1)
+    };
+    $(document).ready(function() {
+      $('.mouse-start').click(function() {
+        mouseInit();
+      });
+      $('.mouse-content span').click(function() {
+        if ($(this).hasClass('active')) {
+          score ++;
+          $('.score').html(score)
+          $('.mouse-content span').removeClass('active');
+          $('.hole' + getRandom(20)).addClass('active');
+        } else {
+          score --;
+          $('.score').html(score)
+        }
+      })
+    });
+  </script>
+</html>

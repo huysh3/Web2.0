@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  height: 190vh;
+  height: 100vh;
   overflow-x: hidden;
 }
 
@@ -13,29 +13,21 @@ section {
   height: 70vh;
   padding: 15vh 15vw;
   text-align: center;
-  .center-card {
-    width: 65vw;
-    height: 65vh;
-    padding: 2.5vh 2.5vw;
-    background-color: #fff;
-    box-shadow: 0px 0px 70px #222;
-  }
   header {
     font-size: 40px;
   }
 }
 
 .container1 {
-  background-color: rgb(174, 194, 45);
   .maze-content {
     width: 60vw;
     height: 45vh;
-    background-color: rgb(58, 134, 33);
+    background-color: #000;
     display: inline-block;
     position: relative;
   }
-  .path1, .path2, .path3, .path4, .path5 {
-    background-color: rgb(29, 208, 213);
+  .path {
+    background-color: rgb(201, 25, 38);
     position: absolute;
   }
   .path1 {
@@ -69,10 +61,11 @@ section {
   .start, .end {
     width: 10vh;
     height: 10vh;
-    background-color: rgb(216, 241, 157);
+    background-color: rgb(244, 75, 227);
+    color: #fff;
     line-height: 10vh;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 25px;
     position: absolute;
   }
   .desc {
@@ -94,27 +87,21 @@ section {
 }
 
 .container2 {
-  background-color: rgb(0, 145, 181);
   header {
     width: calc(~"100% - 4vh");
     height: 6vh;
     padding: 2vh 2vh;
-    background-color: rgb(86, 175, 134);
     .mouse-start {
       display: inline-block;
       float: left;
-      background-color: rgb(84, 195, 218);
-      color: #fff;
-      width: 30%;
+      background-color: #fff;
+      border: 1px solid #000;
+      width: 29%;
       height: 6vh;
       line-height: 6vh;
       text-align: center;
       font-size: 25px;
       border-radius: 4px;
-    }
-    .mouse-start:active {
-      background-color: rgb(79, 191, 254);
-      color: rgb(28, 107, 175);
     }
     .timer {
       width: 40%;
@@ -123,12 +110,10 @@ section {
       text-align: center;
       display: inline-block;
       float: left;
-      color: #fff;
       font-weight: 60px;
       font-weight: bold;
     }
     .score {
-      color: #fff;
       text-align: center;
       width: 30%;
       float: left;
@@ -144,17 +129,14 @@ section {
   .mouse-content span {
     display: inline-block;
     float: left;
-    background-color: rgb(72, 111, 124);
-    height: 10vh;
+    background-color: #fff;
+    border: 1px solid #000;
+    height: 20vh;
     margin: 1.4vh 1vh;
-    width: calc(~"100% / 5 - 2vh");
-    border-radius: 50%;
+    width: calc(~"100% / 3 - 2vh - 10px");
   }
   .active {
-    background-color: rgb(228, 105, 154) !important;
-    transition: all .2s ease;
-  }
-  .active:active {
-    background-color: rgb(57, 179, 58) !important;
+    background-color: #000 !important;
+    transition: all .6s ease;
   }
 }
