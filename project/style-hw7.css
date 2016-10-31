@@ -25,41 +25,43 @@ section span {
   background: url('../img/panda.jpg') no-repeat;
   background-size: 40vw 40vw;
   transition: all .3s ease;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 section span:hover {
-  box-shadow: 0 0 10px #222;
+  box-shadow: 0 0 0.5rem #222;
 }
 
 .mode {
-  width: 100px;
-  height: 50px;
+  width: 5rem;
+  height: 2.5rem;
   background-color: #6a4c9c;
   color: #fff;
   display: inline-block;
-  margin: 10px;
-  line-height: 50px;
+  margin: 0.5rem;
+  line-height: 2.5rem;
   text-align: center;
-  font-size: 16px;
-  border-radius: 4px;
+  font-size: 0.8rem;
+  border-radius: 0.2rem;
 }
 
 .mode:active {
-  background-color: rgb(250, 104, 97);
+  background-color: #fa6861;
 }
 
 .start-btn {
+  position: absolute;
   width: 20vw;
   height: 5vw;
   line-height: 5vw;
   margin: 10vw 40vw;
+  top: 10vw;
   background-color: #333;
   color: #fff;
   font-weight: bold;
   text-align: center;
-  border-radius: 4px;
-  box-shadow: 0 0 10px #666;
+  border-radius: 0.2rem;
+  box-shadow: 0 0 0.5rem #666;
 }
 
 .start-btn:active {
