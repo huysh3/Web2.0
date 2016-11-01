@@ -1,0 +1,112 @@
+@import "lib-mixins";
+@import "lib-reset";
+@import "lib-rem";
+@import "lib-card";
+
+// general style
+body {
+  background-color: rgb(24, 78, 150);
+  height: 100vh;
+  overflow: hidden;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.all-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.vertical-center {
+  margin-top: 50vh;
+  transform: translate(0, -50%);
+}
+
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.left-nav {
+  height: 100vh;
+  flex: 2;
+  background-color: rgb(235, 88, 91);
+  img {
+    width: 40%;
+    border-radius: 50%;
+    margin-top: 2rem;
+  }
+  .desc {
+    color: #fff;
+  }
+  p {
+    line-height: 1.4rem;
+    letter-spacing: .04rem;
+  }
+  li {
+    height: 2rem;
+    line-height: 2rem;
+    color: #fff;
+    font-size: .8rem;
+    transition: all .4s ease;
+    cursor: pointer;
+  }
+  li:hover {
+    background-color: rgb(200, 73, 76);
+    color: rgb(56, 244, 193);
+  }
+  .on {
+    background-color: rgb(200, 73, 76);
+    color: rgb(56, 244, 193);
+  }
+}
+
+.main-content {
+  flex: 7;
+  position: relative;
+  background-color: rgb(24, 78, 150);
+  height: calc(~'100vh - 2rem');
+  padding: 1rem;
+  .card {
+    width: 30%;
+    float: left;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+// basic-skill content
+.basic-skill-content {
+  .card {
+    margin-right: 1rem;
+  }
+}
+
+.homework-content {
+  a {
+    background-color: #fff;
+    padding: .2rem 1rem;
+    display: block;
+    border-radius: .2rem;
+  }
+}
+
+.coffee-content {
+  position: relative;
+  img {
+    position: absolute;
+    width: 15rem;
+  }
+}
