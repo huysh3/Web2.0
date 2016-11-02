@@ -5,7 +5,13 @@
 @purple: #5a183c;
 @gold: #b0865e;
 
+ul {
+  padding: 0;
+  appearance: none;
+}
+
 .index-page-container {
+  overflow-x: hidden;
   header {
     .top-bar {
       text-align: right;
@@ -17,6 +23,8 @@
       line-height: 1rem;
       font-size: .6rem;
       font-weight: bold;
+      position: fixed;
+      top: 0;
       span {
         margin-right: 1rem;
       }
@@ -29,29 +37,18 @@
     .top-nav {
       width: 50vw;
       padding: 0 25vw;
-      height: 2.7rem;
-      background-color: #fff;
-      text-align: center;
-      box-shadow: 0 .1rem .5rem #333;
+      height: 4rem;
+      background: url('../img/nav-BG.png') no-repeat;
+      background-size: cover;
+      background-position: center;
       position: fixed;
       top: 1rem;
-      .icon {
-        display: inline-block;
-        background-color: #fff;;
-        width: 3.4rem;
-        height: 3.4rem;
-        text-align: center;
-        border-bottom-left-radius: 50%;
-        border-bottom-right-radius: 50%;
+      text-align: center;
+      img {
+        width: 2.5rem;
+        height: 2.5rem;
         position: relative;
-        top: .4rem;
-        box-shadow: 0 1px #999;
-        img {
-          width: 2.5rem;
-          height: 2.5rem;
-          position: relative;
-          top: .5rem;
-        }
+        top: 1rem;
       }
     }
     .banner {
@@ -66,7 +63,34 @@
     width: 50vw;
     padding: 0 25vw;
     height: 8.5rem;
-    background-color: rgb(12, 56, 71);
-
+    display: flex;
+    .left-part {
+      position: relative;
+      top: -.95rem;
+      flex: 1;
+      height: 8.5rem;
+      padding-top: .5rem;
+      background: url('../img/news-left-part.png');
+      background-size: 100% 100%;
+      display: inline-block;
+    }
+    .right-part {
+      flex: 2;
+      height: 6rem;
+      padding: 1rem 0 1rem .5rem;
+      font-size: .4rem;
+      header {
+        font-size: .7rem;
+        border-bottom: 1px solid #ccc;
+      }
+      header span {
+        font-size: .5rem;
+      }
+      .more {
+        color: #ccc;
+        float: right;
+        display: inline-block;
+      }
+    }
   }
 }
