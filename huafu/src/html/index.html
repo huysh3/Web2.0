@@ -4,122 +4,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <meta name="full-screen" content="yes">
-    <title>Wilson.Hu</title>
-    <link rel="shortcut icon" href="http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/pie_icon.gif" type="image/x-icon"/>
+    <title>首页</title>
     <link rel="stylesheet" href="../css/style-index.css" media="screen" title="no title">
   </head>
   <body>
-    <div class="container">
-      <nav class="left-nav center">
-        <img src="../img/avatar.jpg" alt="" />
-        <div class="desc">
-          <h3>Wilson.Hu</h3>
-          <p>
-            Just want to be a frontend engineer.
-          </p>
-        </div>
-        <div id="nav-list" class="list">
-          <ul>
-            <li id="basic-skills">Basic Skills</li>
-            <li id="defects">Defects</li>
-            <li id="experience">Experience</li>
-            <li id="homework">HomeWork</li>
-            <li id="coffee">Buy me a coffee</li>
-            <li id="contact-me">Contact me</li>
-          </ul>
-        </div>
-      </nav>
-      <div class="basic-skill-content main-content">
-        <div class="card vertical-center">
-          <header class="card-header">
-            HTML
-          </header>
-          <div class="card-body">
-            <span>HTML5</span>
-            <span>ejs template</span>
-            <span>Django template</span>
-            <span>PHP template</span>
-            <br/>
-            <span>To Be Continue..</span>
-          </div>
-          <div class="card-footer">
+    <div class="index-page-container">
+      <header>
+        <section class="top-bar">
+          <span>欢迎来到世界华埠太太俱乐部！</span>
+          <a href="#">登录</a>
+          <a href="#">注册</a>
+        </section>
+        <section class="top-nav">
+          <div class="icon"><img src="../img/LOGO.png" alt="" /></div>
+        </section>
+        <section class="banner">
+          <img src="../img/_0023_BANNER.png" alt="" />
+        </section>
+      </header>
+      <section class="news-content">
+        <div class="left-part">
 
-          </div>
         </div>
-        <div class="card vertical-center">
-          <header class="card-header">
-            CSS
-          </header>
-          <div class="card-body">
-            <span>CSS3</span>
-            <span>LESS</span>
-            <span>WeUI</span>
-            <span>BootStrap</span>
-            <span>Materialize</span>
-            <span>Simple animation</span>
-            <span>Browser Rendering Process</span>
-            <br/>
-            <span>To Be Continue..</span>
-          </div>
-          <div class="card-footer">
+        <div class="right-part">
 
-          </div>
         </div>
-        <div class="card vertical-center">
-          <header class="card-header">
-            JavaScript
-          </header>
-          <div class="card-body">
-            <span>Gulp</span>
-            <span>jQuery</span>
-            <span>Zepto</span>
-            <span>Vue</span>
-            <span>iScroll</span>
-            <span>chartJS</span>
-            <br/>
-            <span>To Be Continue..</span>
-          </div>
-          <div class="card-footer">
-          </div>
-        </div>
-
-      </div>
-      <div class="homework-content main-content" style="display: none;">
-        <a href="./pie.html"><span>Homework1: Grandma's Pie</span></a>
-      </div>
-      <div class="coffee-content main-content" style="display: none;">
-        <img class="all-center" src="../img/coffee.png" alt="" />
-      </div>
+      </section>
     </div>
   <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
   <script type="text/javascript">
-    $('#basic-skills').click(function() {
-      $('#nav-list li').removeClass('on')
-      $(this).addClass('on')
-      $('.main-content').fadeOut()
-      setTimeout(function() {
-        $('.basic-skill-content').fadeIn();
-      }, 400)
-    })
-    $('#homework').click(function() {
-      $('#nav-list li').removeClass('on')
-      $(this).addClass('on')
-      $('.main-content').fadeOut();
-      setTimeout(function() {
-        $('.homework-content').fadeIn();
-      }, 400)
-    })
-    $('#coffee').click(function() {
-      $('#nav-list li').removeClass('on')
-      $(this).addClass('on')
-      $('.main-content').fadeOut();
-      setTimeout(function() {
-        $('.coffee-content').fadeIn();
-      }, 400)
-    })
-    $('#defects, #experience, #contact-me').click(function() {
-      alert('To be continue..')
-    })
+
   </script>
   </body>
 </html>
