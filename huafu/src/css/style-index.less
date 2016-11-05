@@ -16,6 +16,49 @@ li {
   list-style-type: none;
 }
 
+// 共用部分
+
+.clearfix {
+  clear: both;
+}
+
+.index-footer-content {
+  padding: .7rem 25vw;
+  width: 50vw;
+  margin-top: 2.5rem;
+  background-color: @purple;
+  color: #fff;
+  display: flex;
+  .link-content {
+    width: 15rem;
+    display: flex;
+    flex: 3;
+  }
+  .item {
+    flex: 1;
+    text-align: center;
+  }
+  .item p {
+    font-size: .5rem;
+  }
+  .item .title {
+    font-size: .7rem;
+    margin-bottom: 0;
+  }
+  .qrcode-content {
+    width: calc(~"50vw - 15rem");
+    flex: 2;
+    position: relative;
+    img {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%);
+      width: 8rem;
+    }
+  }
+}
+
 .index-page-container {
   overflow-x: hidden;
   -webkit-text-size-adjust:none;
@@ -335,39 +378,122 @@ li {
       color: #fff;
     }
   }
-  .index-footer-content {
-    padding: .7rem 25vw;
+}
+
+.login-container {
+  width: 100vw;
+  .login-header {
+    height: 2.7rem;
     width: 50vw;
-    margin-top: 2.5rem;
-    background-color: @purple;
-    color: #fff;
-    display: flex;
-    .link-content {
-      width: 15rem;
-      display: flex;
-      flex: 3;
+    padding: 0 25vw;
+    background-color: #fff;
+    box-shadow: 0 1px .1rem #999;
+    .logo {
+      height: 1.7rem;
+      padding: .5rem 0;
+      display: inline-block;
     }
-    .item {
-      flex: 1;
-      text-align: center;
+    .mobile {
+      float: right;
+      height: .7rem;
+      padding: 1rem 0;
     }
-    .item p {
-      font-size: .5rem;
+  }
+  .main-content {
+    margin-top: 5px;
+    width: 100vw;
+    height: 15rem;
+    background: url('../img/banner.png');
+    background-size: contain;
+    .form-content {
+      margin: 2.5rem 25vw 0 0;
+      border: 1px solid #999;
+      height: 10rem;
+      width: 8.6rem;
+      z-index: 1;
+      float: right;
     }
-    .item .title {
-      font-size: .7rem;
-      margin-bottom: 0;
+    .select-identify {
+      height: 1.5rem;
+      width: 8.6rem;
+      border-bottom: 1px solid #999;
+      padding: 0;
+      span {
+        width: calc(~"50% - 1px");
+        display: inline-block;
+        float: left;
+        font-size: .7rem;
+        text-align: center;
+        line-height: 1.5rem;
+        cursor: pointer;
+        transition: all .3s ease;
+      }
+      span:first-child {
+        border-right: 1px solid #999;
+      }
+      .active {
+        height: 1.4rem;
+        border-bottom: .1rem solid @purple
+      }
     }
-    .qrcode-content {
-      width: calc(~"50vw - 15rem");
-      flex: 2;
-      position: relative;
+    .input-content {
+      width: calc(~"100% - 1.4rem");
+      padding: .7rem;
+      input {
+        width: calc(~"100% - 1.2rem");
+        padding-left: 1.2rem;
+        font-size: .5rem;
+        height: 1rem;
+        line-height: 1rem;
+        border: 1px solid #999;
+        border-radius: .1rem;
+      }
+      .user-content, .password-content {
+        position: relative;
+      }
       img {
+        width: .5rem;
+        height: .6rem;
         position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translate(0, -50%);
-        width: 8rem;
+        left: .25rem;
+        top: .5rem;
+        border-right: 1px solid #999;
+        padding-right: .3rem;
+      }
+      .password-content {
+        margin-top: .7rem;
+      }
+      .forget-password {
+        font-size: .5rem;
+        float: right;
+        margin-top: .7rem;
+        text-decoration: none;
+      }
+      .footer-content {
+        font-size: .5rem;
+        text-align: center;
+        .login-btn {
+          width: 100%;
+          height: 1.2rem;
+          background-color: @purple;
+          border: 1px solid @purple;
+          color: #fff;
+          border-radius: .2rem;
+          line-height: 1.2rem;
+          font-size: .7rem;
+          text-align: center;
+          margin-top: .8rem;
+          transition: all ease .4s;
+          cursor: pointer;
+        }
+        .login-btn:hover {
+          background-color: #fff;
+          color: @purple;
+          border: 1px solid @purple;
+        }
+        p {
+          margin: 0;
+        }
       }
     }
   }
