@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/style-st.css" media="screen" title="no title">
+    <style media="screen">
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sortable table</h1>
+      <h2>To-Do</h2>
+      <table class='table1'>
+        <thead>
+          <th id="1" order="up">What? <span></span></th>
+          <th id="2" order="up">When? <span></span></th>
+          <th id="3" order="up">Location <span></span></th>
+        </thead>
+        <tbody>
+          <tr class="body">
+            <td class="1">Paris Web 2007</td>
+            <td class="2">2007-11-15</td>
+            <td class="3">IBM La Defense / INSA</td>
+          </tr>
+          <tr class="body">
+            <td class="1">Paris On Rails 2007</td>
+            <td class="2">2007-12-10</td>
+            <td class="3">Cite des Sciences</td>
+          </tr>
+          <tr class="body">
+            <td class="1">Burger Quiz party</td>
+            <td class="2">2007-04-14</td>
+            <td class="3">Volta</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Staff</h2>
+      <table class="table2">
+        <thead>
+          <th id="1" order="up">First name <span></span></th>
+          <th id="2" order="up">Last name <span></span></th>
+          <th id="3" order="up">Lastest checkin <span></span></th>
+        </thead>
+        <tbody>
+          <tr class="body">
+            <td class="1">Richard</td>
+            <td class="2">Piacentini</td>
+            <td class="3">2007-03-27</td>
+          </tr>
+          <tr class="body">
+            <td class="1">Eric</td>
+            <td class="2">Daspet</td>
+            <td class="3">2007-03-28</td>
+          </tr>
+          <tr class="body">
+            <td class="1">Aurore</td>
+            <td class="2">Jaballah</td>
+            <td class="3">2007-03-15</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+  <script type="text/javascript">
+    $('tr th').click(function() {
+      var arr = [],
+          text = [],
+          result = [],
+          tableName = $(this).parent().parent().parent().attr('class'),
+          col = $(this).attr('id')
+      $('.' + tableName + ' tr th').removeClass('active')
+      $(this).addClass('active')
+      $('.' + tableName + ' span').html('')
+      for (var i = 0; i < 3; i ++) {
+        arr[i] = $('.' + tableName + ' .' + col).eq(i).html()
+      }
+      arr.sort()
+      for (var i = 0; i < 3; i ++) {
+        for (var j = 0; j< 3; j ++) {
+          if (arr[i] == $('.' + tableName + ' .' + col).eq(j).html()) {
+            text[j] = i;
+          }
+        }
+      }
+      for (var i = 0; i < 3; i ++) {
+        result.push($('.' + tableName + ' tr').eq(text[i] + 1))
+      }
+      console.log(result)
+      if ($(this).attr('order') == 'up') {
+        $('.' + tableName + ' tbody').empty()
+        $(this).attr('order', 'down')
+        result.reverse()
+        $('.' + tableName + ' #' + col + ' span').html('▼')
+        $('.' + tableName).append(result)
+      } else {
+        $('.' + tableName + ' tbody').empty()
+        $(this).attr('order', 'up')
+        $('.' + tableName).append(result)
+        $('.' + tableName + ' #' + col + ' span').html('▲')
+      }
+    })
+  </script>
+</html>
