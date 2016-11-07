@@ -111,16 +111,30 @@ li {
       text-align: center;
       z-index: 1;
 
-      .left-part {
+      .nav-tab {
         font-size: .6rem;
         position: absolute;
         width: 20vw;
-        background-color: red;
-        left: 25vw;
         display: flex;
+        height: 2rem;
+        line-height: 2rem;
+        bottom: 1.06rem;
         span {
-          flex: 1 1 auto;
+          text-align: center;
+          flex: 1;
+          cursor: pointer;
+          transition: all .3s ease;
         }
+      }
+      .left-part {
+        left: 25vw;
+      }
+      .right-part {
+        right: 25vw;
+      }
+      .active {
+        color: @purple;
+        border-bottom: .16rem solid @purple;
       }
       img {
         width: 2.5rem;

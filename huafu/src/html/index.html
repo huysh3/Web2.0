@@ -16,12 +16,17 @@
           <a href="#">注册</a>
         </section>
         <section class="top-nav">
-          <div class="left-part">
-            <span>网站首页</span>
+          <div class="nav-tab left-part">
+            <span class="active">网站首页</span>
             <span>华太简介</span>
             <span>新闻动态</span>
           </div>
           <img src="../img/LOGO.png" alt="" />
+          <div class="nav-tab right-part">
+            <span>活动专区</span>
+            <span>活动花絮</span>
+            <span>联系我们</span>
+          </div>
         </section>
         <section class="banner">
           <img src="../img/_0023_BANNER.png" alt="" />
@@ -164,9 +169,12 @@
         </div>
       </footer>
     </div>
-  <!-- <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> -->
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
   <script type="text/javascript">
-
+    $('.nav-tab span').click(function() {
+      $('.nav-tab span').removeClass('active')
+      $(this).addClass('active')
+    })
   </script>
   </body>
 </html>
