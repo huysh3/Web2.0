@@ -22,6 +22,14 @@ li {
   clear: both;
 }
 
+.clear::after {
+  content: '.';
+  visibility: hidden;
+  height: 0;
+  display: block;
+  clear: both;
+}
+
 .general-footer-content {
   .index-footer-content {
     padding: .7rem 25vw;
@@ -70,6 +78,24 @@ li {
       color: #999;
       padding-top: .4rem;
     }
+  }
+}
+
+.login-header, .register-header {
+  height: 2.7rem;
+  width: 50vw;
+  padding: 0 25vw;
+  background-color: #fff;
+  box-shadow: 0 1px .1rem #999;
+  .logo {
+    height: 1.7rem;
+    padding: .5rem 0;
+    display: inline-block;
+  }
+  .mobile {
+    float: right;
+    height: .7rem;
+    padding: 1rem 0;
   }
 }
 
@@ -422,23 +448,6 @@ li {
 
 .login-container {
   width: 100vw;
-  .login-header {
-    height: 2.7rem;
-    width: 50vw;
-    padding: 0 25vw;
-    background-color: #fff;
-    box-shadow: 0 1px .1rem #999;
-    .logo {
-      height: 1.7rem;
-      padding: .5rem 0;
-      display: inline-block;
-    }
-    .mobile {
-      float: right;
-      height: .7rem;
-      padding: 1rem 0;
-    }
-  }
   .main-content {
     margin-top: 5px;
     width: 100vw;
@@ -537,4 +546,147 @@ li {
       }
     }
   }
+}
+
+.register-container {
+  width: 100vw;
+  .main-content {
+    width: 100%;
+    text-align: center;
+    h3 {
+      font-size: 1rem;
+      color: @purple;
+      margin: 0;
+      padding: 3rem 0 1rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      width: 50vw;
+      margin-left: 25vw;
+    }
+    .process-bar {
+      padding-top: 1.6rem;
+      width: 40vw;
+    }
+    .input-content-1 {
+      width: 100vw;
+      text-align: center;
+      padding-top: 1rem;
+    }
+    .user-content, .password-content {
+      width: 20vw;
+      height: 1rem;
+      position: relative;
+      margin: 0 40vw;
+      img {
+        width: .5rem;
+        height: .6rem;
+        position: absolute;
+        border-right: 1px solid #999;
+        padding: .1rem .25rem;
+        top: .35rem;
+      }
+      input {
+        width: calc(~"100% - 1.2rem");
+        height: 100%;
+        // height: 1rem;
+        // line-height: 1rem;
+        font-size: .5rem;
+        border-radius: .1rem;
+        box-shadow: 0;
+        border: 1px solid #999;
+        padding-left: 1.2rem;
+      }
+    }
+    .code-content {
+      width: 20vw;
+      height: 1rem;
+      margin-top: 1rem;
+      margin: 0 40vw;
+      text-align: left;
+      input {
+        width: calc(~"60% - .2rem");
+        height: 100%;
+        font-size: .5rem;
+        border-radius: .1rem;
+        box-shadow: 0;
+        border: 1px solid #999;
+        width: 10vw;
+        padding-left: .2rem;
+      }
+      .send-code-btn {
+        width: 8vw;
+        float: right;
+        height: 1rem;
+        position: relative;
+        top: 2px;
+        display: inline-block;
+        margin-top: .1rem;
+        font-size: .5rem;
+        line-height: 1rem;
+        text-align: center;
+        border: 1px solid #999;
+        color: #333;
+        cursor: pointer;
+      }
+    }
+  }
+  .notice {
+    padding-top: .4rem;
+    font-size: .5rem;
+  }
+  .tips {
+    font-size: .5rem;
+    margin: 0;
+    padding-top: 1rem;
+  }
+  .confirm-btn {
+    font-size: .5rem;
+    text-align: center;
+    display: inline-block;
+    width: 20vw;
+    margin-left: 40vw;
+    background-color: @light-purple;
+    color: #fff;
+    padding: .3rem 0;
+    margin-top: 1rem;
+    border-radius: .2rem;
+  }
+  .level-picker {
+    width: 30vw;
+    margin: 0 35vw;
+    font-size: .6rem;
+    padding-top: 1rem;
+    img {
+      display: inline-block;
+    }
+    .members {
+      width: 20vw;
+      float: right;
+    }
+    .active {
+      background: url('../img/付费选框.png') no-repeat;
+      background-size: 100% 100%;
+      background-position: center;
+    }
+  }
+  .pay-picker {
+    width: 30vw;
+    margin: 0 35vw;
+    font-size: .6rem;
+    padding-top: 1rem;
+    img {
+      display: inline-block;
+      width: 9vw;
+      float: right;
+    }
+    .ali-pay {
+      margin-right: 2vw;
+    }
+    .active {
+      // background: url('../img/支付方式选框.png') no-repeat;
+      // background-size: 100% 100%;
+      // background-position: center;
+      border: 1px solid rgb(204, 116, 35);
+    }
+  }
+
 }
