@@ -108,7 +108,7 @@
                     <p>活动报名时间： 2016.11.01 - 2016.11.10</p>
                     <p>活动举办时间： 2016.11.10 - 2016.11.20</p>
                   </div>
-                  <div class="sign-btn">立即报名</div>
+                  <div class="sign-btn call-modal">立即报名</div>
                 </section>
               </div>
               <li class="item">
@@ -214,9 +214,44 @@
           <p>世界华埠太太俱乐部</p>
         </div>
       </footer>
+
+      <!-- 模态框部分 -->
+      <div class="modal-mask"></div>
+      <div class="modal">
+        <header class="modal-head">
+          填写报名信息
+        </header>
+        <section class="input-content">
+          <ul>
+            <li class="clear">
+              <span>真实姓名</span>
+              <input type="text" name="name" placeholder="请输入真实姓名">
+            </li>
+            <li class="clear">
+              <span>手机号码</span>
+              <input type="text" name="name" placeholder="请输入手机号码">
+            </li>
+            <li class="clear">
+              <span>微信号码</span>
+              <input type="text" name="name" placeholder="请输入微信号码">
+            </li>
+            <li class="clear">
+              <span>备注说明</span>
+              <br>
+              <textarea name="name" rows="8" cols="40"></textarea>
+            </li>
+          </ul>
+          <p class="notice-msg">注：请认真填写以上信息，确保信息真实有效！</p>
+        </section>
+        <footer class="modal-footer">
+          <span class="btn cancel">取消</span>
+          <span class="btn confirm">立即报名</span>
+        </footer>
+      </div>
     </div>
   <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
   <script type="text/javascript">
+    // 用来控制样式~
     $('.activity-list-content nav .item').click(function() {
       $('.activity-list-content nav .item').removeClass('active')
       $(this).addClass('active')
@@ -224,6 +259,15 @@
     $('.nav-tab span').click(function() {
       $('.nav-tab span').removeClass('active')
       $(this).addClass('active')
+    })
+    // 控制模态框
+    $('.call-modal').click(function() {
+      $('.modal-mask').fadeIn()
+      $('.modal').fadeIn()
+    })
+    $('.modal .cancel').click(function() {
+      $('.modal-mask').fadeOut()
+      $('.modal').fadeOut()
     })
   </script>
   </body>

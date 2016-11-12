@@ -1044,4 +1044,83 @@ li {
       }
     }
   }
+  .modal-mask {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+  }
+  .modal {
+    display: none;
+    z-index: 11;
+    width: 30vw;
+    padding: 1rem;
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: .2rem;
+    font-size: .8rem;
+    .modal-head {
+      line-height: 1rem;
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: .6rem;
+    }
+    .input-content {
+      font-size: .6rem;
+    }
+    li {
+      margin-bottom: .6rem;
+    }
+    li span {
+      float: left;
+      width: 20%;
+    }
+    li input {
+      float: left;
+      width: 70%;
+    }
+    li textarea {
+      float: left;
+      width: 70%;
+      height: 2rem;
+      position: relative;
+      top: -.5rem;
+    }
+    .notice-msg {
+      width: 100%;
+      color: #f00;
+    }
+  }
+  .modal-footer {
+    width: 100%;
+    text-align: center;
+  }
+  .btn {
+    padding: .2rem .4rem;
+    font-size: .6rem;
+    margin: 0 2rem;
+    cursor: pointer;
+  }
+  .modal-footer .confirm {
+    background-color: @light-purple;
+    display: inline-block;
+    color: #fff;
+    transition: all ease .4s;
+  }
+  .modal-footer .confirm:hover {
+    background-color: #fff;
+    color: @light-purple;
+    border: 1px solid @light-purple;
+  }
+  .modal-footer .cancel {
+    color: #999;
+    text-decoration: underline;
+  }
 }
