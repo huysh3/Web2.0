@@ -17,7 +17,6 @@ li {
 }
 
 // 共用部分
-
 .clearfix {
   clear: both;
 }
@@ -81,6 +80,86 @@ li {
   }
 }
 
+.nav-content {
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  .top-bar {
+    text-align: right;
+    width: 50vw;
+    padding: 0 25vw;
+    height: 1rem;
+    background-color: @purple;
+    color: @gold;
+    line-height: 1rem;
+    font-size: .6rem;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    span {
+      margin-right: 1rem;
+    }
+    a {
+      text-decoration: none;
+      color: @gold;
+      margin-left: 1rem;
+    }
+  }
+  .top-nav {
+    width: 50vw;
+    padding: 0 25vw;
+    height: 4rem;
+    background: url('../img/nav-BG.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 1rem;
+    text-align: center;
+    z-index: 1;
+
+    .nav-tab {
+      font-size: .6rem;
+      position: absolute;
+      width: 20vw;
+      display: flex;
+      height: 2rem;
+      line-height: 2rem;
+      bottom: 1.06rem;
+      span {
+        text-align: center;
+        flex: 1;
+        cursor: pointer;
+        transition: all .3s ease;
+      }
+    }
+    .left-part {
+      left: 25vw;
+    }
+    .right-part {
+      right: 25vw;
+    }
+    .active {
+      color: @purple;
+      border-bottom: .16rem solid @purple;
+    }
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+      position: relative;
+      top: 1rem;
+    }
+  }
+  .banner {
+    width: 100vw;
+    margin-top: 3rem;
+    img {
+      width: 100%;
+    }
+  }
+}
+
 .login-header, .register-header {
   height: 2.7rem;
   width: 50vw;
@@ -102,81 +181,6 @@ li {
 .index-page-container {
   overflow-x: hidden;
   -webkit-text-size-adjust:none;
-  .nav-content {
-    .top-bar {
-      text-align: right;
-      width: 50vw;
-      padding: 0 25vw;
-      height: 1rem;
-      background-color: @purple;
-      color: @gold;
-      line-height: 1rem;
-      font-size: .6rem;
-      font-weight: bold;
-      position: fixed;
-      top: 0;
-      z-index: 1;
-      span {
-        margin-right: 1rem;
-      }
-      a {
-        text-decoration: none;
-        color: @gold;
-        margin-left: 1rem;
-      }
-    }
-    .top-nav {
-      width: 50vw;
-      padding: 0 25vw;
-      height: 4rem;
-      background: url('../img/nav-BG.png') no-repeat;
-      background-size: cover;
-      background-position: center;
-      position: fixed;
-      top: 1rem;
-      text-align: center;
-      z-index: 1;
-
-      .nav-tab {
-        font-size: .6rem;
-        position: absolute;
-        width: 20vw;
-        display: flex;
-        height: 2rem;
-        line-height: 2rem;
-        bottom: 1.06rem;
-        span {
-          text-align: center;
-          flex: 1;
-          cursor: pointer;
-          transition: all .3s ease;
-        }
-      }
-      .left-part {
-        left: 25vw;
-      }
-      .right-part {
-        right: 25vw;
-      }
-      .active {
-        color: @purple;
-        border-bottom: .16rem solid @purple;
-      }
-      img {
-        width: 2.5rem;
-        height: 2.5rem;
-        position: relative;
-        top: 1rem;
-      }
-    }
-    .banner {
-      width: 100vw;
-      margin-top: 3rem;
-      img {
-        width: 100%;
-      }
-    }
-  }
   .news-content {
     width: 50vw;
     padding: 0 25vw;
@@ -702,5 +706,321 @@ li {
   .success-subtitle {
     font-size: .5rem;
   }
+}
 
+.activity-container {
+  background-color: rgb(253, 231, 219);
+  .nav-content {
+    text-align: center;
+    height: 15rem;
+    .img1 {
+      position: relative;
+      top: -3.5rem;
+      left: -1rem;
+    }
+    .img2 {
+      position: relative;
+      top: -2rem;
+    }
+    .img3 {
+      position: relative;
+      top: -3.5rem;
+      right: -1rem;
+    }
+  }
+  .title-content {
+    width: 50vw;
+    padding: 0 25vw;
+    text-align: center;
+  }
+  .activity-notice-bg {
+    background: url('../img/BG-1.png') no-repeat;
+    background-size: cover;
+    width: 62vw;
+    padding: 0 19vw;
+    padding-top: 1rem;
+    .activity-notice {
+      background: url('../img/活动公告BG.png') no-repeat;
+      background-size: 100% 100%;
+      padding: 1rem;
+      width: 62vw;
+      width: calc(~"62vw - 2rem");
+    }
+    .left-part {
+      font-size: .5rem;
+      color: #fff;
+      width: 35vw;
+      margin-left: 3vw;
+      display: inline-block;
+      line-height: 1rem;
+      .title {
+        font-size: .8rem;
+        margin: 0;
+        width: 35vw;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(240, 240, 240, .3);
+      }
+      .title span {
+        font-size: .5rem;
+      }
+      ul {
+        padding-top: .7rem;
+      }
+      li {
+        display: flex;
+        padding-top: .4rem;
+        border-bottom: 1px solid rgba(240, 240, 240, .3);
+      }
+      .item-title {
+        width: 30vw;
+        flex: 5;
+        height: .7rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
+      .item-desc {
+        flex: 1;
+        padding: 0 1vw;
+        text-align: right;
+      }
+    }
+    .right-part {
+      width: 10vw;
+      height: 5rem;
+      display: inline-block;
+      position: relative;
+      top: -1rem;
+      .title {
+        background: url('../img/活动公告-特别消息.png');
+        background-size: 100% 100%;
+        padding-top: 7rem;
+        padding-bottom: 1.6rem;
+        width: 17vw;
+        margin: 0;
+        margin-left: 2vw;
+        text-align: center;
+        font-size: .5rem;
+        color: #fff;
+      }
+    }
+  }
+  .introduce-content {
+    padding: 1rem 2rem;
+    background-color: rgb(254, 220, 158);
+    .main-content {
+      background: url('../img/活动介绍.png') no-repeat;
+      background-size: 100% 100%;
+      height: 13rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      color: rgb(254, 220, 158);
+      font-size: .5rem;
+      width: 27vw;
+      height: 10rem;
+      padding-top: 3rem;
+      padding-left: 1.8rem;
+    }
+  }
+  .activity-list-content {
+    width: 100%;
+    background-color: rgb(254, 220, 158);
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    img {
+      width: 100%;
+    }
+    .main-content {
+      background-color: rgb(190, 65, 114);
+      padding: 1rem;
+      width: calc(~"50vw - 2rem");
+      margin: 0 6vw;
+    }
+    nav {
+      border-bottom: 1px solid #fff;
+    }
+    nav .item {
+      width: 3rem;
+      display: inline-block;
+      height: .6rem;
+      font-size: .6rem;
+      margin: 0 .6rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      border-right: 1px solid #f0f0f0;
+      cursor: pointer;
+    }
+    nav .item:last-child {
+      border-right: 0;
+    }
+    .active {
+      color: rgb(254, 220, 158) !important;
+    }
+    .first-item {
+      font-size: .6rem;
+      background: url('../img/活动专区-大框.png') no-repeat;
+      background-size: 100% 100%;
+      border-radius: .1rem;
+      padding: .2rem .8rem 1rem .8rem;
+      position: relative;
+      .title {
+        color: @purple;
+        padding-bottom: .2rem;
+        border-bottom: 1px dashed #999;
+      }
+      img {
+        width: 20vw;
+        margin-left: 1vw;
+        float: left;
+      }
+      .bottom-part {
+        position: absolute;
+        bottom: 1rem;
+        right: 4.4rem;
+        font-size: .4rem;
+        p {
+          color: #999;
+          margin: 0;
+        }
+      }
+      .sign-btn {
+        position: absolute;
+        background-color: @light-purple;
+        font-size: .5rem;
+        padding: .2rem .4rem;
+        border-radius: .1rem;
+        color: #fff;
+        right: 1.2rem;
+        bottom: 1rem;
+        cursor: pointer;
+        transition: all .3s ease;
+      }
+    }
+    .detail-content {
+      width: 20vw;
+      display: inline-block;
+      font-size: .4rem;
+      text-indent: -.4rem;
+      margin-left: 1.2vw;
+      li {
+        margin-bottom: .2rem;
+      }
+    }
+    .activity-list .item {
+      background-color: #fff;
+      background: url('../img/活动专区-小框.png') no-repeat;
+      background-size: 100% 100%;
+      height: 1.8rem;
+      line-height: 1.8rem;
+      margin-bottom: .6rem;
+      border-radius: .1rem;
+      cursor: pointer;
+      .tag {
+        padding: .1rem .2rem;
+        font-size: .5rem;
+        color: #fff;
+        background-color: #f00;
+        position: relative;
+        top: -1px;
+        left: .5rem;
+      }
+      .title {
+        padding-left: 1.5rem;
+        font-size: .6rem;
+      }
+    }
+  }
+  .activity-review-content {
+    width: 62vw;
+    margin: 0 19vw;
+    background-color: rgb(254, 220, 158);
+    margin-top: 1rem;
+    img {
+      width: 100%;
+    }
+    .content-title {
+      width: 90%;
+      margin: 0 5%;
+      font-size: .8rem;
+      text-align: center;
+      padding: 1rem  0 .6rem 0;
+      border-bottom: 1px solid #999;
+    }
+    .main-content {
+      width: 50vw;
+      margin: 0 6vw;
+      padding-bottom: 1rem;
+    }
+    .main-content img {
+      width: 22%;
+      margin-right: 4%;
+      margin-top: 1rem;
+      float: left;
+    }
+    .main-content img:nth-child(4n + 0) {
+      margin-right: 0;
+    }
+    .content-footer {
+      width: 90%;
+      margin: 0 5%;
+      border-top: 1px solid #999;
+      text-align: center;
+      padding: 1rem 0;
+      span {
+        display: inline-block;
+        font-size: .5rem;
+        padding: .2rem .4rem;
+      }
+      .disable {
+        color: #999;
+        border: 1px solid #999;
+      }
+      .available {
+        background-color: @light-purple;
+        color: #fff;
+      }
+    }
+  }
+  .partner-content {
+    width: 62vw;
+    margin: 0 19vw;
+    background-color: rgb(254, 220, 158);
+    padding: 1rem 0;
+    margin-top: 1rem;
+    .content-title {
+      width: 80%;
+      margin: 0 10%;
+      text-align: center;
+      border-bottom: 1px solid #999;
+      padding: .4rem 0;
+      p {
+        margin: 0;
+      }
+      .title {
+        color: #666;
+        font-size: .8rem;
+      }
+      .subtitle {
+        color: #999;
+        font-size: .5rem;
+        display: inline-block;
+      }
+    }
+    .logo-content {
+      width: 50vw;
+      margin: 0 6vw;
+      img {
+        width: 12%;
+        float: left;
+        margin-right: 10%;
+        margin-top: 1rem;
+      }
+      img:nth-child(5n + 0) {
+        margin-right: 0;
+      }
+    }
+  }
 }
