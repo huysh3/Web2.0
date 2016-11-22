@@ -52,14 +52,14 @@ body {
 }
 
 #bottom-positioner:hover {
+// #bottom-positioner {
   .icon {
-    background: url('../img/atplus_green.png') no-repeat;
+    // background: url('../img/atplus_green.png') no-repeat;
     background-size: 35px 24px;
     background-color: @blue;
     background-position: center;
     transform: scale(1.4);
   }
-
   .icon::after {
     content: '';
     position: absolute;
@@ -67,15 +67,23 @@ body {
     left: -40px;
     width: 100px;
     height: 200px;
+    z-index: 0;
+    // pointer-events: none;
   }
 
   .info {
     padding: 7px 0;
     width: 170px;
     height: 150px;
+    text-align: center;
+    line-height: 150px;
+    font-size: 100px;
+    font-weight: bold;
+    color: #fff;
     transform: translate(-5%, -140px);
   }
   .mask, .history, .message, .setting, .sign {
+    opacity: 1;
     transform: translate(0, 0);
   }
   .unread {
@@ -137,16 +145,23 @@ body {
 #control-ring li {
   width: 40px;
   height: 40px;
-  background-color: #999;
+  text-align: center;
+  line-height: 40px;
+  font-size: 30px;
+  color: #fff;
+  font-weight: border;
+  background-color: @blue;
   background-position: center;
   border-radius: 50%;
   position: absolute;
   transition: all .5s ease;
+  z-index: 1;
+  opacity: 0;
 }
 
 
 .mask {
-  background: url('../img/mask.png') no-repeat;
+  // background: url('../img/mask.png') no-repeat;
   right: 90px;
   top: -5px;
   transform: scale(0.1);
@@ -154,7 +169,7 @@ body {
 }
 
 .history {
-  background: url('../img/history.png') no-repeat;
+  // background: url('../img/history.png') no-repeat;
   right: 100px;
   top: 50px;
   transform: scale(0.1);
@@ -162,30 +177,30 @@ body {
 }
 
 .message {
-  background: url('../img/message.png') no-repeat;
+  // background: url('../img/message.png') no-repeat;
   right: 75px;
   transform: scale(0.1);
   top: 95px;
   transform: translate(65px, -70px);
-  .unread {
-    width: 14px;
-    height: 14px;
-    padding: 2px;
-    background-color: red;
-    border-radius: 50%;
-    position: absolute;
-    right: -2px;
-    top: -2px;
-    font-size: 10px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 14px;
-    color: #fff;
-  }
 }
 
+.unread {
+  width: 14px;
+  height: 14px;
+  padding: 2px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 14px;
+  color: #fff;
+}
 .setting {
-  background: url('../img/setting.png') no-repeat;
+  // background: url('../img/setting.png') no-repeat;
   right: 20px;
   top: 110px;
   transform: scale(0.1);
@@ -193,7 +208,7 @@ body {
 }
 
 .sign {
-  background: url('../img/signin.png') no-repeat;
+  // background: url('../img/signin.png') no-repeat;
   right: -35px;
   top: 100px;
   transform: scale(0.1);
