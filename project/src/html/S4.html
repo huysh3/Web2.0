@@ -38,7 +38,16 @@
         turn = turn.sort(function(){
           return Math.random() - 0.5
         });
-        console.log(turn);
+        function calc() {
+          $('#control-ring .unread').each(function() {
+            sum += parseInt($(this).html())
+            console.log($(this).html())
+          })
+          console.log(sum)
+          if (sum) {
+            $('.info').html(sum)
+          }
+        }
         $('#bottom-positioner').mouseenter(function() {
           $('#control-ring li').css('background-color', 'rgba(48, 63, 159, 1)')
           $('#control-ring .unread').each(function() {
@@ -69,14 +78,7 @@
             success: function(data) {
               $this.find('.unread').html(data)
               $this.css('background-color', 'rgba(48, 63, 159, 1)')
-              $('#control-ring .unread').each(function() {
-                sum += parseInt($(this).html())
-                console.log($(this).html())
-              })
-              console.log(sum)
-              if (sum) {
-                $('.info').html(sum)
-              }
+              calc()
             },
             error: function(xhr, type){
               $('.info').html('0')
