@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>环形按钮</title>
+    <meta charset="utf-8">
+    <link rel="icon" sizes="196x196" href="../img/favicon.png">
+    <link rel="stylesheet" href="../css/style-hw3.css" media="screen" title="no title">
+  </head>
+  <body>
+    <div id="at-plus-container">
+      <div id="bottom-positioner">
+        <div id="button">
+          <div id="info-bar">
+            <div style="display:block" class="info">
+              0
+            </div>
+          </div>
+          <div id="control-ring-container">
+            <ul id="control-ring">
+              <li id="btn-a" title="蒙板" class="mask button">A<span class="unread">0</span></li>
+              <li id="btn-b" title="历史记录" class="history button">B<span class="unread">0</span></li>
+              <li id="btn-c" title="消息" class="message button">C<span class="unread">0</span></li>
+              <li id="btn-d" title="设置" class="setting button">D<span class="unread">0</span></li>
+              <li id="btn-e" title="登录/注册" class="sign button">E<span class="unread">0</span></li>
+            </ul>
+          </div>
+          <div class="apb">
+            <div class="icon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/zepto.1.1.6.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var xhr;
+        $('#bottom-positioner').mouseenter(function() {
+          $('#control-ring li').css('background-color', 'rgba(48, 63, 159, 1)')
+          $('#control-ring .unread').each(function() {
+            $(this).html('0').hide()
+          })
+        })
+        $('#control-ring .unread').each(function() {
+          $(this).html('0').hide()
+        })
+        $('#bottom-positioner').mouseleave(function() {
+          $('.info').html('0')
+          $('.unread').html('0')
+          xhr.abort()
+        })
+        $('#control-ring li').click(function() {
+          var $this = $(this)
+          var sum = 0;
+          xhr = $.ajax({
+            method : 'get',
+            url: 'http://localhost:3000/',
+            dataType: 'json',
+            timeout: 20000,
+            beforeSend: function(xhr, settings) {
+              $this.find('.unread').show().html('...')
+              $this.css('background-color', 'gray')
+              $('.info').html('')
+            },
+            success: function(data) {
+              $this.find('.unread').html(data)
+              $this.css('background-color', 'rgba(48, 63, 159, 1)')
+              $('#control-ring .unread').each(function() {
+                sum += parseInt($(this).html())
+                console.log($(this).html())
+              })
+              console.log(sum)
+              if (sum) {
+                $('.info').html(sum)
+              }
+            },
+            error: function(xhr, type){
+              $('.info').html('0')
+            }
+          });
+        })
+        function ajax($el) {
+          var $this = $el
+          var sum = 0;
+          xhr = $.ajax({
+            method : 'get',
+            url: 'http://localhost:3000/',
+            dataType: 'json',
+            timeout: 20000,
+            beforeSend: function(xhr, settings) {
+              $this.find('.unread').show().html('...')
+              $this.css('background-color', 'gray')
+              $('.info').html('')
+            },
+            success: function(data) {
+              $this.find('.unread').html(data)
+              $this.css('background-color', 'rgba(48, 63, 159, 1)')
+              $('#control-ring .unread').each(function() {
+                sum += parseInt($(this).html())
+                console.log($(this).html())
+              })
+              console.log(sum)
+              if (sum) {
+                $('.info').html(sum)
+              }
+              if ($this.text() == $('#btn-a').text()) {
+                ajax($('#btn-b'))
+              } else if ($this.text() == $('#btn-b').text()) {
+                ajax($('#btn-c'))
+              } else if ($this.text() == $('#btn-c').text()) {
+                ajax($('#btn-d'))
+              } else if ($this.text() == $('#btn-d').text()) {
+                ajax($('#btn-e'))
+              } else {
+                console.log($this.text())
+              }
+            },
+            error: function(xhr, type){
+              $('.info').html('0')
+            }
+          });
+        }
+        $('#bottom-positioner').addClass('active')
+        setTimeout(function() {
+          ajax($('#btn-a'))
+        }, 1000)
+      })
+    </script>
+  </body>
+</html>
