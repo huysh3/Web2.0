@@ -78,6 +78,17 @@
             }
           });
         })
+        function calc() {
+          var sum = 0;
+          $('#control-ring .unread').each(function() {
+            sum += parseInt($(this).html())
+            console.log($(this).html())
+          })
+          console.log(sum)
+          if (sum) {
+            $('.info').html(sum)
+          }
+        }
         function ajax($el) {
           var $this = $el
           var sum = 0;
@@ -89,30 +100,11 @@
             beforeSend: function(xhr, settings) {
               $this.find('.unread').show().html('...')
               $this.css('background-color', 'gray')
-              $('.info').html('')
             },
             success: function(data) {
               $this.find('.unread').html(data)
               $this.css('background-color', 'rgba(48, 63, 159, 1)')
-              $('#control-ring .unread').each(function() {
-                sum += parseInt($(this).html())
-                console.log($(this).html())
-              })
-              console.log(sum)
-              if (sum) {
-                $('.info').html(sum)
-              }
-              // if ($this.text() == $('#btn-a').text()) {
-              //   ajax($('#btn-b'))
-              // } else if ($this.text() == $('#btn-b').text()) {
-              //   ajax($('#btn-c'))
-              // } else if ($this.text() == $('#btn-c').text()) {
-              //   ajax($('#btn-d'))
-              // } else if ($this.text() == $('#btn-d').text()) {
-              //   ajax($('#btn-e'))
-              // } else {
-              //   console.log($this.text())
-              // }
+              calc()
             },
             error: function(xhr, type){
               $('.info').html('0')
