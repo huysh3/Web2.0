@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="full-screen" content="yes">
+    <title>Wilson.Hu</title>
+    <link rel="shortcut icon" href="http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/pie_icon.gif" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../css/style-index.css" media="screen" title="no title">
+  </head>
+  <body>
+    <div class="container">
+      <nav class="left-nav center">
+        <img src="../../img/avatar.jpg" alt="" />
+        <div class="desc">
+          <h3>About us</h3>
+          <p>
+            Just want to be a frontend engineer.
+          </p>
+        </div>
+        <div id="nav-list" class="list">
+          <ul>
+            <li id="basic-skills">Tab1</li>
+            <li id="defects">Tab2</li>
+            <li id="experience">Tab3</li>
+            <li id="homework">Tab4</li>
+            <li id="coffee">Tab5</li>
+            <li id="contact-me">Tab6</li>
+          </ul>
+        </div>
+      </nav>
+      <div class="basic-skill-content main-content">
+        <div class="card vertical-center">
+          <header class="card-header">
+            HTML
+          </header>
+          <div class="card-body">
+            <span>HTML5</span>
+            <span>ejs template</span>
+            <span>Django template</span>
+            <span>PHP template</span>
+          </div>
+          <div class="card-footer">
+
+          </div>
+        </div>
+        <div class="card vertical-center">
+          <header class="card-header">
+            CSS
+          </header>
+          <div class="card-body">
+            <span>CSS3</span>
+            <span>LESS</span>
+            <span>WeUI</span>
+            <span>BootStrap</span>
+            <span>Materialize</span>
+            <span>Simple animation</span>
+            <span>Browser Rendering Process</span>
+          </div>
+          <div class="card-footer">
+
+          </div>
+        </div>
+        <div class="card vertical-center">
+          <header class="card-header">
+            JavaScript
+          </header>
+          <div class="card-body">
+            <span>Gulp</span>
+            <span>jQuery</span>
+            <span>Zepto</span>
+            <span>Vue</span>
+            <span>iScroll</span>
+            <span>chartJS</span>
+          </div>
+          <div class="card-footer">
+          </div>
+        </div>
+
+      </div>
+      <div class="homework-content main-content" style="display: none;">
+        <a href="./pie.html"><span>Homework1: Grandma's Pie</span></a>
+      </div>
+      <div class="coffee-content main-content" style="display: none;">
+        <img class="all-center" src="../img/coffee.png" alt="" />
+      </div>
+    </div>
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript">
+    $('#nav-list li').click(function() {
+      $('#nav-list li').removeClass('on')
+      $(this).addClass('on')
+    })
+    // $('#basic-skills').click(function() {
+    //
+    //   $('.main-content').fadeOut()
+    //   setTimeout(function() {
+    //     $('.basic-skill-content').fadeIn();
+    //   }, 400)
+    // })
+    // $('#homework').click(function() {
+    //   $('#nav-list li').removeClass('on')
+    //   $(this).addClass('on')
+    //   $('.main-content').fadeOut();
+    //   setTimeout(function() {
+    //     $('.homework-content').fadeIn();
+    //   }, 400)
+    // })
+    // $('#coffee').click(function() {
+    //   $('#nav-list li').removeClass('on')
+    //   $(this).addClass('on')
+    //   $('.main-content').fadeOut();
+    //   setTimeout(function() {
+    //     $('.coffee-content').fadeIn();
+    //   }, 400)
+    // })
+    // $('#defects, #experience, #contact-me').click(function() {
+    //   alert('To be continue..')
+    // })
+  </script>
+  </body>
+</html>
