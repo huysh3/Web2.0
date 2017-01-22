@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="full-screen" content="yes">
+    <title>Wilson.Hu</title>
+    <link rel="shortcut icon" href="http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/pie_icon.gif" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../css/style-index.css" media="screen" title="no title">
+  </head>
+  <body>
+    <div class="container">
+      <nav class="left-nav center">
+        <img src="../../img/avatar.jpg" alt="" />
+        <div class="desc">
+          <h3>About us</h3>
+          <p>
+            数字媒体<br>技术基础网页
+          </p>
+        </div>
+        <div id="nav-list" class="list">
+          <ul>
+            <li id="basic-skills">主题</li>
+            <li id="defects">总体介绍</li>
+            <li id="experience" class='on'>数字视频</li>
+            <li id="coffee">数字音频的简单介绍</li>
+            <li id="contact-me">文本与文本处理的简单介绍</li>
+          </ul>
+        </div>
+      </nav>
+      <div class="detail-content main-content">
+        <div class="tab2-content">
+          <header class="title">数字视频来源2--数码摄像机</header>
+          <section class="text">
+            @提高480线以上的分辨率，清晰度高
+            @自动对焦，自动曝光
+            @使用MPEG-2进行压缩编码，然后记录在储存卡或者硬盘上
+            @具有录音功能
+            @数据量很大，使用USB接口或IEEE1394接口
+            优势（与模拟机对比）：
+            a.数码摄像机储存采用数字模式，数据可靠不易丢失
+            b.存储更方便
+            c.后期处理更方便
+          </section>
+          <footer>
+            <span class="prev"><a href="./index-tab5.html">上一页</a></span>
+            <span class="next"><a href="./index-tab7.html">下一页</a></span>
+          </footer>
+        </div>
+      </div>
+    </div>
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript">
+    $('#nav-list li').click(function() {
+      $('#nav-list li').removeClass('on')
+      $(this).addClass('on')
+    })
+  </script>
+  </body>
+</html>

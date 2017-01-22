@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="full-screen" content="yes">
+    <title>Wilson.Hu</title>
+    <link rel="shortcut icon" href="http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/pie_icon.gif" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../css/style-index.css" media="screen" title="no title">
+  </head>
+  <body>
+    <div class="container">
+      <nav class="left-nav center">
+        <img src="../../img/avatar.jpg" alt="" />
+        <div class="desc">
+          <h3>About us</h3>
+          <p>
+            数字媒体<br>技术基础网页
+          </p>
+        </div>
+        <div id="nav-list" class="list">
+          <ul>
+            <li id="basic-skills">主题</li>
+            <li id="defects">总体介绍</li>
+            <li id="experience">数字视频</li>
+            <li id="coffee">数字音频的简单介绍</li>
+            <li id="contact-me" class="on">文本与文本处理的简单介绍</li>
+          </ul>
+        </div>
+      </nav>
+      <div class="detail-content main-content">
+        <div class="tab2-content">
+          <header class="title">文本与文本处理</header>
+          <section class="text">
+            <p>该部分还未完全开发</p>
+            简单介绍：文本与文本处理是数字媒体的应用之一，文字是一种书面语言，由一系列称为字符的书写符号构成。文字信息在计算机中使用文本来表示。文本是基于特定字符集成的、具有
+            上下文相关性的一个字符流，每个字符均使用二进制编码表示。文本是计算机中最常见的一种数字媒体，其在计算机中的处理过程包括：文本准备、文本编辑、文本处
+            理、文本存储于传输、文本展现等，根据应用场合的不同，各个处理环节的内容和要求可能有很大的差别。
+          </section>
+          <footer>
+            <span class="prev"><a href="./index-tab9.html">上一页</a></span>
+            <span class="next"><a href="./index-tab11.html">下一页</a></span>
+          </footer>
+        </div>
+      </div>
+    </div>
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript">
+    $('#nav-list li').click(function() {
+      $('#nav-list li').removeClass('on')
+      $(this).addClass('on')
+    })
+  </script>
+  </body>
+</html>

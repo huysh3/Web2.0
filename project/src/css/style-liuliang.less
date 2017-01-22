@@ -1,0 +1,215 @@
+@import "lib-normalize";
+@import "lib-mixins";
+@import "lib-reset";
+@import "lib-rem";
+
+@green: #1AAD19;
+
+.clearfix::after {
+  content: '.';
+  display: block;
+  visibility: hidden;
+  clear: both;
+  height: 0;
+}
+
+.index-container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  padding-top: 1rem;
+  .index-header {
+    width: 100vw;
+    background-color: #fff;
+    .tel-input {
+      display: block;
+      width: calc(~"100vw - 1.4rem");
+      font-size: 1.4rem;
+      font-weight: bold;
+      height: 2rem;
+      line-height: 2rem;
+      padding: .7rem;
+      border: 0;
+      // background-color: rgb(59, 177, 117);
+    }
+    ::-webkit-input-placeholder {
+      color: rgba(139, 201, 139, 0.6);
+      font-weight: lighter;
+    }
+
+  }
+  .select-content {
+    background-color: #fff;
+    padding: .7rem;
+    border-top: 1px solid #f0f0f0;
+    .select-title {
+      font-size: .7rem;
+      color: #999;
+      padding-bottom: .7rem;
+    }
+    .item {
+      width: calc(~"100% / 3 - .4rem");
+      margin-right: .4rem;
+      border: 1px solid @green;
+      text-align: center;
+      color: @green;
+      float: left;
+      border-radius: .2rem;
+      margin-bottom: .4rem;
+      transition: all .4s ease;
+      .price {
+        font-size: .8rem;
+        margin-bottom: .4rem;
+      }
+      .desc {
+        margin-top: .4rem;
+        font-size: .6rem;
+      }
+    }
+    .item.active {
+      background-color: @green;
+      border: 1px solid @green;
+      color: #fff;
+    }
+    .item:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+}
+
+.more-container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  padding-top: 1rem;
+  .more-header {
+    background-color: #fff;
+    padding: .7rem;
+  }
+  .body-content {
+    .title {
+      font-size: .7rem;
+      color: #999;
+      padding-top: .7rem;
+      padding-left: .7rem;
+    }
+    .select-content .item {
+      background-color: #fff;
+      padding: .7rem;
+    }
+    .item {
+      font-size: .8rem;
+      height: 1rem;
+      line-height: 1rem;
+      border-bottom: 1px solid #f0f0f0;
+      .right-part {
+        float: right;
+        color: @green;
+      }
+    }
+    .tab-content {
+      width: 100vw;
+      height: 2rem;
+      background-color: #fff;
+      display: flex;
+      border-bottom: 1px solid #f0f0f0;
+      .tab {
+        line-height: 2rem;
+        font-size: .8rem;
+        text-align: center;
+        font-weight: bold;
+        flex: 1;
+      }
+      .tab.active {
+        border-bottom: .2rem solid @green;
+      }
+    }
+    .item-detail {
+      padding: .7rem;
+      background-color: #efefef;
+      display: none;
+      .detail-left-part {
+        display: inline-block;
+      }
+      .detail-right-part {
+        display: inline-block;
+        color: @green;
+        border: 1px solid @green;
+        border-radius: .1rem;
+        font-size: .8rem;
+        padding: .2rem .8rem;
+        margin-top: .2rem;
+        float: right;
+      }
+      .detail-price {
+        font-size: 1rem;
+        font-weight: bold;
+        margin: 0;
+      }
+      .detail-desc {
+        font-size: .6rem;
+        color: #999;
+        margin: 0;
+        margin-top: .1rem;
+      }
+      .tag {
+        display: inline-block;
+        background-color: @green;
+        color: #fff;
+        border-radius: .1rem;
+        padding: 0 .1rem;
+        margin-right: .1rem;
+      }
+    }
+    .item:active {
+      background-color: #f0f0f0;
+    }
+  }
+}
+
+.pay-container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  text-align: center;
+  padding-top: 15vh;
+  .title {
+    font-size: 1.4rem;
+    color: #666;
+    font-weight: bold;
+  }
+  .desc {
+    color: #999;
+    font-size: .8rem;
+    line-height: 1rem;
+    margin: 1rem 0;
+  }
+  button {
+    margin: 1rem auto;
+    width: calc(~"100vw - 1.4rem") !important;
+  }
+}
+
+.pay-confirm-container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  text-align: center;
+  padding-top: 15vh;
+  .title {
+    font-size: 1.4rem;
+    color: @green;
+    font-weight: bold;
+    margin-top: .7rem;
+  }
+  .desc {
+    color: #333;
+    font-size: .8rem;
+    line-height: 1rem;
+    margin: 1rem 0;
+  }
+  button {
+    margin: 1rem auto;
+    width: calc(~"100vw - 1.4rem") !important;
+  }
+}

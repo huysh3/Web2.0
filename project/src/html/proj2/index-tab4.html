@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="full-screen" content="yes">
+    <title>Wilson.Hu</title>
+    <link rel="shortcut icon" href="http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/pie_icon.gif" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../css/style-index.css" media="screen" title="no title">
+  </head>
+  <body>
+    <div class="container">
+      <nav class="left-nav center">
+        <img src="../../img/avatar.jpg" alt="" />
+        <div class="desc">
+          <h3>About us</h3>
+          <p>
+            数字媒体<br>技术基础网页
+          </p>
+        </div>
+        <div id="nav-list" class="list">
+          <ul>
+            <li id="basic-skills">主题</li>
+            <li id="defects">总体介绍</li>
+            <li id="experience" class="on">数字视频</li>
+            <li id="coffee">数字音频的简单介绍</li>
+            <li id="contact-me">文本与文本处理的简单介绍</li>
+          </ul>
+        </div>
+      </nav>
+      <div class="detail-content main-content">
+        <div class="tab2-content">
+          <header class="title">什么是数字视频</header>
+          <section class="text">
+            简介：
+            数字视频就是先用摄像机之类的视频捕捉设备，将外界影像的颜色和亮度信息转变为电信号，再记录到储存介质（如录像带）。即以数字形式记录的视频，和模拟视频相对的。数字视频有不同的产生方式，存储方式和播出方式。比如通过数字摄像机直接产生数字视频信号，存储在数字带，P2卡，蓝光盘或者磁盘上，从而得到不同格式的数字视频。然后通过PC，特定的播放器等播放出来。
+
+            数字视频的发展：
+            谈到数字视频的发展历史，不能不回顾计算机的发展历程，它实际上是与计算机所能处理的信息类型密切相关的，自上个世纪40年代计算机诞生以来，计算机大约经历了以下几个发展阶段：
+            @数值计算阶段。这是计算机问世后的“幼年”时期。在这个时期计算机只能处理数值数据，主要用于解决科学与工程技术中的数学问题。实际上，世界上第一台电子计算机ENIAC就是为美国国防部解决弹道计算问题和编制射击表而研制生产的。
+            @数据处理阶段。50年代发明了字符发生器，使计算机不但能处理数值，也能表示和处理字母及其它各种符号，从而使计算机的应用领域从单纯的数值计算进入了更加广泛的数据处理。这是由世界上第一个批量生产的商用计算机UNIAC—1首开先河的。
+            @多媒体阶段。随着电子器件的进展，尤其是各种图形、图像设备和语音设备的问世，计算机逐渐进入多媒体时代，信息载体扩展到文、图、声等多种类型，使计算机的应用领域进一步扩大。由于视觉，即图形、图像，最能直观明了、生动形象地传达有关对象的信息，因而在多媒体计算机中占有重要的地位。
+          </section>
+          <footer>
+            <span class="prev"><a href="./index-tab3.html">上一页</a></span>
+            <span class="next"><a href="./index-tab5.html">下一页</a></span>
+          </footer>
+        </div>
+      </div>
+    </div>
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript">
+    $('#nav-list li').click(function() {
+      $('#nav-list li').removeClass('on')
+      $(this).addClass('on')
+    })
+  </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="full-screen" content="yes">
+    <title></title>
+    <script src="http://cdn.bootcss.com/vue/2.1.10/vue.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../../css/style-liuliang.css" media="screen" title="no title">
+  </head>
+  <body>
+    <div class="more-container" id="app">
+      <header class="more-header">
+        136 0245 5397
+      </header>
+      <section class="body-content">
+
+        <p class="title">{{ phoneInfo.carrier }}</p>
+        <section class="select-content">
+          <div class="tab-content">
+            <span class="tab active" @click="showZhiChong">直充包</span>
+            <span class="tab" @click="showGeXing">个性包</span>
+          </div>
+
+          <div v-for="item in showLists" :data-id="item.product_id">
+            <div class="item clearfix">
+              <span class="left-part">{{ item.amount }}</span>
+              <span class="right-part">{{ item.price / 100 }}元</span>
+            </div>
+            <div class="item-detail">
+              <div class="detail-left-part">
+                <p class="detail-price">37.5元</p>
+                <p class="detail-desc"><span class="tag">省内</span>立即生效，月底失效</p>
+              </div>
+              <div class="detail-right-part">购买</div>
+            </div>
+          </div>
+
+        </section>
+      </section>
+    </div>
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          phoneNum: '13602455397',
+          geXingLists: [],
+          zhiChongLists: [],
+          showLists: '',
+          phoneInfo: '',
+        }
+      },
+      mounted() {
+        this.getProductList()
+      },
+      methods: {
+        getProductList: function() {
+          $.get('http://llcz.applinzi.com/index.php/Home/Index/getMore/phone/' + this.phoneNum, (response) => {
+            console.log(JSON.parse(response))
+            this.geXingLists = JSON.parse(response).data.gexing
+            this.zhiChongLists = JSON.parse(response).data.zhichong
+            this.phoneInfo = JSON.parse(response).data.phone
+            this.showLists = this.zhiChongLists
+          })
+        },
+        showZhiChong: function(event) {
+          $('.tab-content .tab').removeClass('active')
+          $(event.currentTarget).addClass('active')
+          this.showLists = this.zhiChongLists
+          console.log(this.showLists)
+        },
+        showGeXing: function(event) {
+          $('.tab-content .tab').removeClass('active')
+          $(event.currentTarget).addClass('active')
+          this.showLists = this.geXingLists
+          console.log(this.showLists)
+        },
+      }
+    })
+  </script>
+</html>

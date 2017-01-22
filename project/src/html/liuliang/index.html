@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="full-screen" content="yes">
+    <title></title>
+    <script src="http://cdn.bootcss.com/vue/2.1.10/vue.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../../css/style-liuliang.css" media="screen" title="no title">
+  </head>
+  <body>
+    <div class="index-container" id="app">
+      <header class="index-header">
+        <input class="tel-input" type="text" name="" value="" @input="update" placeholder="请输入手机号">
+      </header>
+      <section class="select-content">
+        <header class="select-title">充流量</header>
+        <section class="clearfix">
+          <div class="item" v-for="item in lists" @click="selectItem">
+            <p class="price">{{ item.amount }}</p>
+            <p class="desc">售价{{ item.price / 100 }}元</p>
+          </div>
+          <!-- <div class="item">
+            <p class="price">2G</p>
+            <p class="desc">售价97.50元</p>
+          </div>
+          <div class="item">
+            <p class="price">500M</p>
+            <p class="desc">售价27.50元</p>
+          </div>
+          <div class="item">
+            <p class="price">300M</p>
+            <p class="desc">售价17.50元</p>
+          </div>
+          <div class="item">
+            <p class="price">100G</p>
+            <p class="desc">售价4750元</p>
+          </div> -->
+          <div class="item">
+            <p class="price">更多流量包</p>
+            <p class="desc">点击查看</p>
+          </div>
+        </section>
+      </section>
+    </div>
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+  <script src="http://cdn.bootcss.com/lodash.js/4.17.4/lodash.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var PATTERN_CHINATELECOM =/^1(3[3])|(8[019])\d{8}$/;
+    var PATTERN_CHINAMOBILE = /^1(3[4-9]|5[012789]|8[23478]|4[7]|7[8])\d{8}$/
+    var PATTERN_CHINAUNICOM =/^1(3[0-2]|5[56]|8[56]|4[5]|7[6])\d{8}$/;
+    var a = 'sdf'
+    var vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          lists: [],
+        }
+      },
+      mounted() {
+
+      },
+      methods: {
+        selectItem: function(event) {
+          $('.select-content .item').removeClass('active')
+          $(event.currentTarget).addClass('active')
+        },
+        update: _.debounce(function (e) {
+          var _this = this
+          this.input = e.target.value
+          $.get('http://llcz.applinzi.com/index.php/Home/Index/getIndex/phone/' + this.input, (res) => {
+            this.lists = JSON.parse(res).data.net_traffic
+          })
+          console.log(this.lists)
+        }, 500)
+      }
+    })
+    // $(document).ready(function() {
+    //
+    //   $('.select-content .item').click(function() {
+    //     var inputPhoneNumber = $('.tel-input').val()
+    //     if (PATTERN_CHINATELECOM.test(inputPhoneNumber)) {
+    //       console.log('中国电信')
+    //     } else if (PATTERN_CHINAUNICOM.test(inputPhoneNumber)) {
+    //       console.log('中国联通')
+    //     } else if (PATTERN_CHINAMOBILE.test(inputPhoneNumber)) {
+    //       console.log('中国移动')
+    //     } else {
+    //       return console.log('手机不合法')
+    //     }
+    //
+    //     $('.select-content .item').removeClass('active')
+    //     $(this).addClass('active')
+    //   })
+    // })
+  </script>
+</html>

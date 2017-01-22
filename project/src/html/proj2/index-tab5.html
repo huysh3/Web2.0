@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="full-screen" content="yes">
+    <title>Wilson.Hu</title>
+    <link rel="shortcut icon" href="http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/pie_icon.gif" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../css/style-index.css" media="screen" title="no title">
+  </head>
+  <body>
+    <div class="container">
+      <nav class="left-nav center">
+        <img src="../../img/avatar.jpg" alt="" />
+        <div class="desc">
+          <h3>About us</h3>
+          <p>
+            数字媒体<br>技术基础网页
+          </p>
+        </div>
+        <div id="nav-list" class="list">
+          <ul>
+            <li id="basic-skills">主题</li>
+            <li id="defects">总体介绍</li>
+            <li id="experience" class="on">数字视频</li>
+            <li id="coffee">数字音频的简单介绍</li>
+            <li id="contact-me">文本与文本处理的简单介绍</li>
+          </ul>
+        </div>
+      </nav>
+      <div class="detail-content main-content">
+        <div class="tab2-content">
+          <header class="title">数字视频来源1--数字摄像头</header>
+          <section class="text">
+            @分辨率在352*288~640*280之间
+            @速度一般在30fps（30帧/秒）
+            @镜头的视角可达到45~60度
+            @支持USB接口或者IEEE1394（火线）接口
+            @成像器件采用CMOS或CCD
+            优势（与模拟摄像头对比）：
+            a.清晰度高
+            b.监控易管理，可远程管理和图像查看，易于搜索储存，不会被破坏
+            c.有整合性，任何一台PC的浏览器都可以查看管理图像，并可以实现多路监控
+            d.摄像机安装方便，仅需分配一个IP地址，使用现有的网络作为传输平台
+            e.扩展性好，可以轻松将更多网络摄像机添加到系统，不需要专用电缆
+
+          </section>
+          <footer>
+            <span class="prev"><a href="./index-tab4.html">上一页</a></span>
+            <span class="next"><a href="./index-tab6.html">下一页</a></span>
+          </footer>
+        </div>
+      </div>
+    </div>
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript">
+    $('#nav-list li').click(function() {
+      $('#nav-list li').removeClass('on')
+      $(this).addClass('on')
+    })
+  </script>
+  </body>
+</html>

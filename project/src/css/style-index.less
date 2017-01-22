@@ -130,12 +130,20 @@ ul {
   margin-top: 1rem;
   text-indent: 1.2rem;
   font-size: .6rem;
-  max-height: 75vh;
+  max-height: 71vh;
   overflow-y: scroll;
+}
+
+.detail-content .text::selection {
+  background-color: rgb(43, 49, 50);
+  color: #fff;
 }
 
 .detail-content footer {
   display: flex;
+  a {
+    text-decoration: none;
+  }
 }
 
 .detail-content footer .prev,
@@ -145,4 +153,19 @@ ul {
   font-size: .6rem;
   margin-top: 1rem;
   flex: 1;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  transition: all .4s ease;
+  cursor: pointer;
+}
+
+.detail-content footer .prev {
+  border-right: 10px solid rgb(24, 78, 150);
+}
+
+.detail-content footer .prev:hover,
+.detail-content footer .next:hover {
+  background-color: rgb(95, 155, 235);
+  color: rgb(235, 88, 91);
 }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="full-screen" content="yes">
+    <title>Wilson.Hu</title>
+    <link rel="shortcut icon" href="http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/pie_icon.gif" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../css/style-index.css" media="screen" title="no title">
+  </head>
+  <body>
+    <div class="container">
+      <nav class="left-nav center">
+        <img src="../../img/avatar.jpg" alt="" />
+        <div class="desc">
+          <h3>About us</h3>
+          <p>
+            数字媒体<br>技术基础网页
+          </p>
+        </div>
+        <div id="nav-list" class="list">
+          <ul>
+            <li id="basic-skills">主题</li>
+            <li id="defects">总体介绍</li>
+            <li id="experience">数字视频</li>
+            <li id="coffee" class="on">数字音频的简单介绍</li>
+            <li id="contact-me">文本与文本处理的简单介绍</li>
+          </ul>
+        </div>
+      </nav>
+      <div class="detail-content main-content">
+        <div class="tab2-content">
+          <header class="title">数字音频的简单介绍</header>
+          <section class="text">
+            <p>该部分还未完全开发</p>
+            简单介绍：数字声音是数字媒体的应用之一，声音是传递信息的一种重要媒体，也是计算机信息处理的主要对象之一，它在多媒体技术中起着重要的作用。计算机处理、存储和传输声音的前提是必须将声音信息数字化。数字声音是一种连续媒体，数据量大，对存储和传输的要求比较高。
+          </section>
+          <footer>
+            <span class="prev"><a href="./index-tab9.html">上一页</a></span>
+            <span class="next"><a href="./index-tab11.html">下一页</a></span>
+          </footer>
+        </div>
+      </div>
+    </div>
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script src="../../js/jump.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    $('#nav-list li').click(function() {
+      $('#nav-list li').removeClass('on')
+      $(this).addClass('on')
+    })
+  </script>
+  </body>
+</html>
