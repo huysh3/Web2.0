@@ -21,6 +21,7 @@
   .index-header {
     width: 100vw;
     background-color: #fff;
+    position: relative;
     .tel-input {
       display: block;
       width: calc(~"100vw - 1.4rem");
@@ -29,6 +30,7 @@
       height: 2rem;
       line-height: 2rem;
       padding: .7rem;
+      padding-bottom: 1.8rem;
       border: 0;
       // background-color: rgb(59, 177, 117);
     }
@@ -36,7 +38,17 @@
       color: rgba(139, 201, 139, 0.6);
       font-weight: lighter;
     }
-
+    .phone-info {
+      // padding: .7rem;
+      // padding-top: 0;
+      position: absolute;
+      bottom: .6rem;
+      left: .9rem;
+      display: inline-block;
+      font-size: .6rem;
+      font-weight: bold;
+      color: #666;
+    }
   }
   .select-content {
     background-color: #fff;
@@ -73,6 +85,15 @@
     }
     .item:nth-child(3n) {
       margin-right: 0;
+    }
+  }
+  .tips {
+    font-size: .6rem;
+    color: #999;
+    padding: .7rem;
+    line-height: 1rem;
+    p {
+      margin: .4rem auto;
     }
   }
 }
