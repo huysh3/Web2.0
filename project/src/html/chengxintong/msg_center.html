@@ -59,4 +59,21 @@
       </section>
     </div>
   </body>
+  <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    var identify = 'UV9YrKKaM7w+k49y3hKvKJ0ETNfiNvtj8DoyM1H598E='
+    $.ajax({
+      url: 'http://s.chengxinxitong.com/app1.0.0/getMessageNoReadCount.action',
+      methods: 'POST',
+      data: {
+        identify: 'UV9YrKKaM7w+k49y3hKvKJ0ETNfiNvtj8DoyM1H598E='
+      },
+      success: function(res) {
+        console.log('sdf')
+      },
+      fail: function(res) {
+
+      }
+    })
+  </script>
 </html>
