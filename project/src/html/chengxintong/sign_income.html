@@ -5,6 +5,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="stylesheet" href="../../css/style-chengxintong.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
     <title>签到明细收益</title>
   </head>
@@ -47,19 +48,17 @@
     methods: {
       getSignIncomeList() {
         var _this = this
-        $.ajax({
-          url: 'http://s.chengxinxitong.com/app1.0.0/getSignRevenueListData.action',
-          methods: 'POST',
-          data: {
-            identify: 'UV9YrKKaM7w+k49y3hKvKJ0ETNfiNvtj8DoyM1H598E='
-          },
-          success: function(res) {
-            _this.showList = JSON.parse(res).list
-            console.log(_this.showList)
-          },
-          fail: function(res) {
-          }
-        })
+        axios.post('http://s.chengxinxitong.com/app1.0.0/getSignRevenueListData.action', {
+            data: {
+              identify: 'UV9YrKKaM7w+k49y3hKvKJ0ETNfiNvtj8DoyM1H598E='
+            }
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       },
     }
   })
