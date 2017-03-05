@@ -48,7 +48,7 @@ var reactive = function(btn) {
 
 var get_identify_safe = function() {
   if ($.cookie('identify') == undefined) {
-    window.location.href = "/login"
+    window.location.href = "login.html"
   } else {
     return $.cookie('identify');
   }
