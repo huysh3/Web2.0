@@ -1,0 +1,215 @@
+body {
+  background-color: white;
+}
+
+.month_box {
+  margin: 1em;
+  text-align: center;
+}
+
+.prev_btn, .next_btn {
+  height: 1em;
+  position: relative;
+  top: -1px;
+}
+
+.prev_btn {
+  margin-right: 3em;
+}
+
+.next_btn {
+  margin-left: 3em;
+}
+
+.calendar_box {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.calendar {
+  width: 90%;
+  margin: auto;
+  max-width: 23em;
+}
+
+.calendar th, .calendar td {
+  width: 3em;
+  height: 2em;
+  line-height: 2em;
+  font-size: 14px;
+  text-align: center;
+}
+
+.calendar th {
+  color: #999999;
+}
+
+.day_circle {
+  height: 26px;
+  line-height: 24px;
+  width: 26px;
+  border-radius: 13px;
+  text-align: center;
+  font-size: 14px;
+  margin: auto;
+}
+
+.day_circle.today {
+  /*border: 1px solid #eea6ac;*/
+  /*color: white;*/
+  /*background-color: #eea6ac;*/
+  position: relative;
+  top: -1px;
+  left: -1px;
+}
+
+.day_circle.continuous {
+  border: 1px solid #e7d080;
+  position: relative;
+  top: -1px;
+  left: -1px;
+  border-left: 0;
+}
+
+.success_clock_in_msg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: none;
+  z-index: 5;
+}
+
+.success_clock_in_box {
+  height: 100%;
+  width: auto;
+  position: relative;
+  margin: auto;
+  display: inline-block;
+}
+
+.close_btn {
+  width: 3.5vh;
+  height: 3.5vh;
+  position: absolute;
+  right: 7.4vh;
+  top: 25vh;
+}
+
+.check_detail_btn {
+  width: 28.3vh;
+  height: 5vh;
+  position: absolute;
+  right: 10.6vh;
+  bottom: 22.4vh;
+}
+
+.text_msg_box {
+  width: 35vh;
+  height: 12vh;
+  position: absolute;
+  top: 52vh;
+  left: 8vh;
+  background-color: white;
+}
+
+.text_msg_box .income_box {
+  font-size: 3vh;
+  padding: 0.2em 0;
+}
+
+.text_msg_box .msg_box {
+  font-size: 2vh;
+  line-height: 1.1em;
+}
+
+.success_clock_in_img {
+  height: 100%;
+  width: auto;
+  /*margin: auto;*/
+}
+
+.banner_container {
+  width: 100%;
+  position: relative;
+}
+
+.banner_image {
+  width: 100%;
+  height: auto;
+}
+
+.banner_wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.banner_container {
+  width: 100%;
+  height: 100%;
+}
+
+.banner_box {
+  width: 100%;
+  text-align: center;
+}
+
+.banner_title {
+  width: 5.4em;
+  height: 5.4em;
+  line-height: 4.9em;
+  border-radius: 2.7em;
+  border: 5px solid #cdb46d;
+  background-color: white;
+  margin: auto;
+  font-size: 16px;
+}
+
+.today_clock_in_num {
+  height: 2em;
+  line-height: 2em;
+  border-radius: 1em;
+  background-color: #b1851a;
+  color: white;
+  width: 10em;
+  text-align: center;
+  margin: auto;
+  font-size: 12px;
+  margin-top: 1em;
+}
+
+.clock_in_record_line {
+  width: 100%;
+  padding: 8vw 10vw 0 10vw;
+}
+
+.clock_in_record_line .num, .clock_in_record_line .name {
+  color: white;
+}
+
+.clock_in_record_line .name {
+  font-size: 12px;
+}
+
+.clock_in_record_line .num {
+  font-size: 20px;
+}
+
+.month {
+  width: 1.5em;
+  display: inline-block;
+}
+
+.year {
+  width: 3em;
+  display: inline-block;
+}
+
+.change_btn {
+  display: inline-block;
+}
