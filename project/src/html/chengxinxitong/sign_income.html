@@ -12,7 +12,7 @@
   <body>
     <div id="app" class="sign-income-container">
       <header>
-        <img class="back-btn" src="../../img/图标/返回.png" alt="">
+        <a href="home.html"><img class="back-btn" src="../../img/图标/返回.png" alt=""></a>
         签到明细收益
       </header>
       <section class="main-content">
@@ -33,7 +33,11 @@
     </div>
   </body>
   <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../js/chengxinxitong/utils.js"></script>
+  <script type="text/javascript" src="../../js/chengxinxitong/jquery.cookie.js"></script>
   <script type="text/javascript">
+  var _identify = get_identify_safe()
+  axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
   var vm = new Vue({
     el: '#app',
     data: function() {
@@ -48,13 +52,12 @@
     methods: {
       getSignIncomeList() {
         var _this = this
-        axios.post('http://s.chengxinxitong.com/app1.0.0/getSignRevenueListData.action', {
-            data: {
-              identify: 'UV9YrKKaM7w+k49y3hKvKJ0ETNfiNvtj8DoyM1H598E='
-            }
-          })
+        var params = new URLSearchParams();
+        params.append('identify', _identify)
+        axios.post('http://s.chengxinxitong.com/app1.0.0/getSignRevenueListData.action', params)
           .then(function (response) {
-            console.log(response);
+            console.log(response.data.list);
+            _this.showList = response.data.list
           })
           .catch(function (error) {
             console.log(error);
@@ -62,6 +65,5 @@
       },
     }
   })
-
   </script>
 </html>

@@ -8,7 +8,8 @@ var init_banner = function() {
   var slider = $('#carousel');
   var item_container = slider.children('.carousel-inner');
   var indicator_list = slider.children('.carousel-indicators');
-  post('/get_banner_list/', {'identify' : get_identify_safe()}, function(resp) {
+  post('http://s.chengxinxitong.com/app1.0.0/getBannerListData.action', {'identify' : get_identify_safe()}, function(resp) {
+    var resp = eval('(' + resp + ')')
     if (resp['errno'] == 0) {
       for (var idx = 0; idx < resp['banner'].length; idx++) {
         var item = resp['banner'][idx];
@@ -33,7 +34,8 @@ var init_slide_action = function(slider) {
 }
 
 var init_msg = function() {
-  post('/get_msg_count/', {'identify' : get_identify_safe()}, function(resp) {
+  post('http://s.chengxinxitong.com/app1.0.0/getMessageNoReadCount.action', {'identify' : get_identify_safe()}, function(resp) {
+    var resp = eval('(' + resp + ')')
     if (resp['errno'] != 0 && 'error' in resp) {
       alert(resp['error']);
       return false;
@@ -45,7 +47,8 @@ var init_msg = function() {
 }
 
 var init_digit = function() {
-  post('/get_user_info_data/', {'identify' : get_identify_safe()}, function(resp) {
+  post('http://s.chengxinxitong.com/app1.0.0/getUserInfoData.action', {'identify' : get_identify_safe()}, function(resp) {
+    var resp = eval('(' + resp + ')')
     if (resp['errno'] != 0 && 'error' in resp) {
       alert(resp['error']);
       return false;
@@ -57,4 +60,3 @@ var init_digit = function() {
     $('.app_container[role="today_clock_in"] .app_hint').text(resp['sign_money'].toFixed(2));
   })
 }
-

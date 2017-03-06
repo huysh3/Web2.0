@@ -5,12 +5,14 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="stylesheet" href="../../css/style-chengxintong.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
     <title>用户中心</title>
   </head>
   <body>
-    <div class="user-center-container">
+    <div id="app" class="user-center-container">
       <header>
-        <img class="back-btn" src="../../img/图标/返回.png" alt="">
+        <a href="home.html"><img class="back-btn" src="../../img/图标/返回.png" alt=""></a>
         用户中心
       </header>
       <section class="main-content">
@@ -18,23 +20,23 @@
         <div class="table-cell-content">
           <div class="table-cell">
             <span class="left-part">身份</span>
-            <span class="right-part">成员用户 <img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
+            <span class="right-part">{{ userInfo.role }} <img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
           </div>
           <div class="table-cell">
             <span class="left-part">编号</span>
-            <span class="right-part">12312123122 <img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
+            <span class="right-part">{{ userInfo.ident }} <img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
           </div>
           <div class="table-cell">
             <span class="left-part">头像</span>
-            <span class="right-part"> <img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
+            <span class="right-part"> <img class="avatar" :src="userInfo.logo" alt=""></span>
           </div>
           <div class="table-cell">
             <span class="left-part">昵称</span>
-            <span class="right-part">张武侠 <img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
+            <span class="right-part">{{userInfo.nick}} <img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
           </div>
           <div class="table-cell">
             <span class="left-part">手机号</span>
-            <span class="right-part">13800138000 <img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
+            <span class="right-part">{{userInfo.phone}} <img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
           </div>
         </div>
         <p class="title">账户安全</p>
@@ -51,4 +53,37 @@
       </section>
     </div>
   </body>
+  <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../js/chengxinxitong/utils.js"></script>
+  <script type="text/javascript" src="../../js/chengxinxitong/jquery.cookie.js"></script>
+  <script type="text/javascript">
+    var _identify = get_identify_safe()
+    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+    var vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          userInfo: ''
+        }
+      },
+      mounted: function() {
+        this.getUserInfo()
+      },
+      methods: {
+        getUserInfo: function() {
+          var _this = this
+          var params = new URLSearchParams();
+          params.append('identify', _identify)
+          axios.post('http://s.chengxinxitong.com/app1.0.0/getUserInfoData.action', params)
+            .then(function (response) {
+              console.log(response.data.logo);
+              _this.userInfo = response.data
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        },
+      }
+    })
+  </script>
 </html>

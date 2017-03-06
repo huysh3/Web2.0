@@ -5,74 +5,75 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="stylesheet" href="../../css/style-chengxintong.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
     <title>个人中心</title>
   </head>
   <body>
-    <div class="msg-center-container">
+    <div class="msg-center-container" id="app">
       <header>
-        <img class="back-btn" src="../../img/图标/返回.png" alt="">
+        <a href="home.html"><img class="back-btn" src="../../img/图标/返回.png" alt=""></a>
         消息中心
       </header>
       <section class="main-content">
         <div class="msg-cell-content">
-          <div class="msg-cell">
-            <img class="msg-cell-avatar" src="../../img/图标/消息icon.png" alt="">
+          <div class="msg-cell" v-for="item in msgList" :data-id="item.id" @click="setMsgRead(item.id, $event)">
+            <img v-show="item.type == 1" class="msg-cell-avatar" src="../../img/图标/消息icon.png" alt="">
+            <img v-show="item.type == 0" class="msg-cell-avatar" src="../../img/图标/消息icon-active.png" alt="">
             <div class="text-content">
-              <p class="title">有一笔新收入已入家庭账户</p>
-              <p class="subtitle">3.58积分已入，请注意查收</p>
+              <p class="title">{{ item.title }}</p>
+              <p class="subtitle">{{ item.content }}</p>
             </div>
-            <p class="time">12月10日</p>
-          </div>
-          <div class="msg-cell">
-            <img class="msg-cell-avatar" src="../../img/图标/消息icon.png" alt="">
-            <div class="text-content">
-              <p class="title">有一笔新收入已入家庭账户</p>
-              <p class="subtitle">3.58积分已入，请注意查收</p>
-            </div>
-            <p class="time">12月10日</p>
-          </div>
-          <div class="msg-cell">
-            <img class="msg-cell-avatar" src="../../img/图标/消息icon.png" alt="">
-            <div class="text-content">
-              <p class="title">有一笔新收入已入家庭账户</p>
-              <p class="subtitle">3.58积分已入，请注意查收</p>
-            </div>
-            <p class="time">12月10日</p>
-          </div>
-          <div class="msg-cell">
-            <img class="msg-cell-avatar" src="../../img/图标/消息icon-active.png" alt="">
-            <div class="text-content">
-              <p class="title">有一笔新收入已入家庭账户</p>
-              <p class="subtitle">3.58积分已入，请注意查收</p>
-            </div>
-            <p class="time">12月10日</p>
-          </div>
-          <div class="msg-cell active">
-            <img class="msg-cell-avatar active" src="../../img/图标/消息icon.png" alt="">
-            <div class="text-content">
-              <p class="title">有一笔新收入已入家庭账户</p>
-              <p class="subtitle">3.58积分已入，请注意查收</p>
-            </div>
-            <p class="time">12月10日</p>
+            <p class="time">{{ item.time }}</p>
           </div>
         </div>
       </section>
     </div>
   </body>
   <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../js/chengxinxitong/utils.js"></script>
+  <script type="text/javascript" src="../../js/chengxinxitong/jquery.cookie.js"></script>
   <script type="text/javascript">
-    var identify = 'UV9YrKKaM7w+k49y3hKvKJ0ETNfiNvtj8DoyM1H598E='
-    $.ajax({
-      url: 'http://s.chengxinxitong.com/app1.0.0/getMessageNoReadCount.action',
-      methods: 'POST',
-      data: {
-        identify: 'UV9YrKKaM7w+k49y3hKvKJ0ETNfiNvtj8DoyM1H598E='
+    var _identify = get_identify_safe()
+    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+    var vm = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          msgList: ''
+        }
       },
-      success: function(res) {
-        console.log('sdf')
+      mounted: function() {
+        this.getMsgList()
       },
-      fail: function(res) {
-
+      methods: {
+        getMsgList: function() {
+          var _this = this
+          var params = new URLSearchParams();
+          params.append('identify', _identify)
+          axios.post('http://s.chengxinxitong.com/app1.0.0/getUserMessageListData.action', params)
+            .then(function (response) {
+              _this.msgList = response.data.list
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        },
+        setMsgRead: function(msg_id, $event) {
+          var _this = this
+          var params = new URLSearchParams();
+          params.append('identify', _identify)
+          params.append('id', msg_id)
+          axios.post('http://s.chengxinxitong.com/app1.0.0/setUserMessageRead.action', params)
+            .then(function (response) {
+              if (response.data.errno == '0') {
+                $("div[data-id='" + msg_id + "'] img").attr('src', '../../img/图标/消息icon.png')
+              }
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        }
       }
     })
   </script>
