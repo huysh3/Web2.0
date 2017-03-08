@@ -31,7 +31,7 @@
   <script type="text/javascript" src="../../js/chengxinxitong/utils.js"></script>
   <script type="text/javascript" src="../../js/chengxinxitong/jquery.cookie.js"></script>
   <script type="text/javascript">
-  // var _identify = get_identify_safe()
+  var _identify = get_identify_safe()
   axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
   var vm = new Vue({
     el: '#app',
@@ -47,7 +47,22 @@
     },
     methods: {
       sendFeedBack() {
-        console.log('sendFeedBack' + this.inputContact + this.inputContent)
+        var _this = this
+        var params = new URLSearchParams();
+        params.append('identify', _identify)
+        params.append('content', this.inputContact)
+        params.append('contact', this.inputContent)
+        axios.post('http://s.chengxinxitong.com/app1.0.0/sendUserFeedback.action', params)
+          .then(function (response) {
+            if (response.data.errno == '0') {
+              alert('提交成功!')
+            } else {
+              alert(response.data.error)
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       },
     }
   })

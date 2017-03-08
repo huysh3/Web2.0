@@ -29,7 +29,7 @@ var listen_find = function() {
       return false;
     }
     params['code'] = $('input[name="verify_code"]').val();
-    post('http://s.chengxinxitong.com/app1.0.0/resetUserPassword.action', params, function(resp) {
+    post('http://s.chengxinxitong.com/app1.0.0/resetUserPayword.action', params, function(resp) {
       var resp = eval('(' + resp + ')')
       if ('error' in resp) {
         alert(resp['error']);

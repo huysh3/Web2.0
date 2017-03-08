@@ -7,7 +7,8 @@ $(document).ready(function() {
 });
 
 var go_clock_in = function() {
-  post('/clock_in/', {'identify' : get_identify_safe()}, function(resp) {
+  var resp = eval('(' + resp + ')')
+  post('http://s.chengxinxitong.com/app1.0.0/sendUserSign.action', {'identify' : get_identify_safe()}, function(resp) {
     if (resp['errno'] != 0 && 'error' in resp) {
       alert(resp['error']);
       return false;
@@ -77,7 +78,8 @@ var update_calendar = function(date, continuous) {
 }
 
 var update_clock_in_days = function(year, month) {
-  post('/get_sign_in_days/', {'identify' : get_identify_safe(), 'year' : year, 'month' : month}, function(resp) {
+  post('http://s.chengxinxitong.com/app1.0.0/getSignRecordListData.action', {'identify' : get_identify_safe(), 'year' : year, 'month' : month}, function(resp) {
+    var resp = eval('(' + resp + ')')
     if (resp['errno'] != 0 && 'error' in resp) {
       alert(resp['error']);
       return false;
@@ -91,7 +93,8 @@ var update_clock_in_days = function(year, month) {
 }
 
 var init_data = function() {
-  post('/get_user_info_data/', {'identify' : get_identify_safe()}, function(resp) {
+  post('http://s.chengxinxitong.com/app1.0.0/getUserInfoData.action', {'identify' : get_identify_safe()}, function(resp) {
+    var resp = eval('(' + resp + ')')
     if (resp['errno'] != 0 && 'error' in resp) {
       alert(resp['error']);
       return false;
