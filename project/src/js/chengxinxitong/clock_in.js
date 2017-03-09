@@ -85,7 +85,7 @@ var update_clock_in_days = function(year, month) {
       return false;
     }
     for (var i in resp['list']) {
-      var sign_in_day = resp['list'][i];
+      var sign_in_day = resp['list'][i] / 1;
       // console.log($('.calendar td[year="' + year + '"][month="' + month + '"][day="' + sign_in_day + '"]'));
       $('.calendar td[year="' + year + '"][month="' + month + '"][day="' + sign_in_day + '"]').children('.day_circle').addClass('continuous');
     }

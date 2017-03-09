@@ -119,6 +119,13 @@ header {
     left: .7rem;
     transform: translate(0, -50%);
   }
+  .right-btn {
+    height: 1.5rem;
+    position: absolute;
+    top: 50%;
+    right: .7rem;
+    transform: translate(0, -50%);
+  }
 }
 
 .about-container {
@@ -381,11 +388,47 @@ header {
 .msg-center-container {
   background-color: #f0f0f0;
   min-height: 100vh;
+  .right-btn {
+    line-height: 1.5rem;
+    border: 1px solid #666;
+    border-radius: .1rem;
+    font-size: .7rem;
+    padding: 0 .4rem;
+    display: inline-block;
+  }
   .main-content {
     margin-top: .5rem;
     .msg-cell-content {
       padding: 0 .7rem;
       background-color: #fff;
+    }
+  }
+}
+
+.tips-container {
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  .list-content {
+    padding: 0 .7rem;
+    background-color: #fff;
+  }
+  .list-item {
+    padding: .7rem 0;
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .title {
+    font-size: .8rem;
+    margin: 0;
+  }
+  .content {
+    font-size: .7rem;
+    background-color: #ccc;
+    border-radius: .2rem;
+    padding: .7rem;
+    p {
+      margin: 0;
+      margin-bottom: .4rem;
     }
   }
 }

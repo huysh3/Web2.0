@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="../../css/style-chengxintong.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
-    <title>个人中心</title>
+    <title>消息中心</title>
   </head>
   <body>
     <div class="msg-center-container" id="app">
       <header>
         <a href="javascript:history.back();"><img class="back-btn" src="../../img/图标/返回.png" alt=""></a>
         消息中心
+        <span class="right-btn" @click="deleteMsgs">清空</span>
       </header>
       <section class="main-content">
         <div class="msg-cell-content">
@@ -40,7 +41,8 @@
       el: '#app',
       data: function() {
         return {
-          msgList: ''
+          msgList: '',
+          msgId: []
         }
       },
       mounted: function() {
@@ -54,6 +56,7 @@
           axios.post('http://s.chengxinxitong.com/app1.0.0/getUserMessageListData.action', params)
             .then(function (response) {
               _this.msgList = response.data.list
+
             })
             .catch(function (error) {
               console.log(error);
@@ -73,6 +76,28 @@
             .catch(function (error) {
               console.log(error);
             });
+        },
+        deleteMsgs() {
+          var _this = this
+          var params = new URLSearchParams();
+          this.msgId = this.msgList.map(function(item) {
+            return item.id
+          })
+          params.append('identify', _identify)
+          params.append('id', this.msgId.join(','))
+          axios.post('http://s.chengxinxitong.com/app1.0.0/delUserMessage.action', params)
+            .then(function (response) {
+              if (response.data.errno == '0') {
+                _this.msgList = ''
+                alert('操作成功！')
+              } else {
+                alert(response.data.error)
+              }
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+          console.log(this.msgId.join(','))
         }
       }
     })

@@ -12,7 +12,7 @@
   <body>
     <div id="app" class="feedback-container">
       <header>
-        <img class="back-btn" src="../../img/图标/返回.png" alt="">
+        <a href="javascript:history.back();"><img class="back-btn" src="../../img/图标/返回.png" alt=""></a>
         意见反馈
         <span class="send-btn" @click="sendFeedBack">提交</span>
       </header>
@@ -43,7 +43,6 @@
     },
     mounted: function() {
       var _this = this
-      this.sendFeedBack()
     },
     methods: {
       sendFeedBack() {

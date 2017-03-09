@@ -57,6 +57,6 @@ var init_digit = function() {
     $('.app_container[role="family_account"] .app_hint').text(resp['family_money']);
     $('.app_container[role="user_account"] .app_hint').text(resp['personal_money']);
     $('.app_container[role="today_income"] .app_hint').text(resp['personal_today']);
-    $('.app_container[role="today_clock_in"] .app_hint').text(resp['sign_money'].toFixed(2));
+    $('.app_container[role="today_clock_in"] .app_hint').text(resp['sign_money']);
   })
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="../../css/style-chengxintong.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <title>意见反馈</title>
+  </head>
+  <body>
+    <div id="app" class="tips-container">
+      <header>
+        <a href="javascript:history.back();"><img class="back-btn" src="../../img/图标/返回.png" alt=""></a>
+        常见疑问
+      </header>
+      <div class="list-content">
+        <div class="list-item" v-for="item in lists">
+          <p class="title">{{ item.title }}</p>
+          <section class="content">
+            <p>问题详情</p>
+            {{ item.content }}
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../js/chengxinxitong/utils.js"></script>
+  <script type="text/javascript" src="../../js/chengxinxitong/jquery.cookie.js"></script>
+  <script type="text/javascript">
+  var _identify = get_identify_safe()
+  axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+  var vm = new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        lists: []
+      }
+    },
+    mounted: function() {
+      this.getTips()
+    },
+    methods: {
+      getTips() {
+        var _this = this
+        var params = new URLSearchParams();
+        params.append('identify', _identify)
+        axios.post('http://s.chengxinxitong.com/app1.0.0/getQuestionListData.action', params)
+          .then(function (response) {
+            if (response.data.errno == 0) {
+              _this.lists = response.data.list
+            } else {
+              alert(response.data.error)
+            }
+          })
+          .catch(function (error) {
+          });
+      },
+    }
+  })
+  </script>
+</html>

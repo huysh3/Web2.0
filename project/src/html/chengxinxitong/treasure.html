@@ -14,7 +14,7 @@
 <body>
   <div class="header">
     <div class="header_inner">
-      <a target="_top" target="_top" class="header_left_btn" href="user_center.html"><img src="../../img/图标/个人中心.png" /></a>
+      <a target="_top" target="_top" class="header_left_btn" href="personal_center.html"><img src="../../img/图标/个人中心.png" /></a>
       <div class="header_text">家庭账户</div>
       <a target="_top" target="_top" class="header_right_btn" href="#"><img src="../../img/图标/刷新.png" /></a>
     </div>
@@ -43,7 +43,7 @@
         <img class="tendency_icon tendency_down" src="../../img/图标/下降.png" />
       </div>
     </div>
-    <div class="history_box yesterday_box total_box left">
+    <div id="goFamilyAccount" class="history_box yesterday_box total_box left">
       <div class="history_box_title">家庭账户</div>
       <div class="history_box_num textEllipsis" role="family_money">获取中..</div>
     </div>
@@ -57,7 +57,7 @@
         <div class="box_content_num textEllipsis" role="personal_today">获取中..</div>
       </div>
     </div>
-    <div class="today_box balance_box left">
+    <div id="goUserAccount" class="today_box balance_box left">
       <img src="../../img/图标/个人账户.png" class="box_icon" />
       <div class="box_content">
         <div class="box_content_title">个人账户</div>
@@ -72,12 +72,12 @@
       <img src="../../img/图片/收入指南背景.jpg" class="income_instruction_img" />
       <div class="income_instruction_box">
         <div class="hint">如何提升我的家庭财富</div>
-        <a href="#" target="_top" class="button instruction_btn">查看详情</a>
+        <a href="tips.html" target="_top" class="button instruction_btn">查看详情</a>
       </div>
     </div>
     <div class="clear"></div>
   </div>
-  <a target="_top" href="question.html" class="block question_line">
+  <a target="_top" href="tips.html" class="block question_line">
     <img src="../../img/图标/常见问题.png" class="question_icon" />
     常见问题
   </a>
@@ -109,4 +109,12 @@
 <script type="text/javascript" src="../../js/chengxinxitong/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/chengxinxitong/utils.js"></script>
 <script type="text/javascript" src="../../js/chengxinxitong/treasure.js"></script>
+<script type="text/javascript">
+  $('#goUserAccount').click(function() {
+    window.location.href = 'user_account_detail.html'
+  })
+  $('#goFamilyAccount').click(function() {
+    window.location.href = 'family_account_detail.html'
+  })
+</script>
 </html>

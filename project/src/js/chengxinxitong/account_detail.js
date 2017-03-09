@@ -76,8 +76,9 @@ var ITEM_STR = '' +
 var get_data_from_server = function(year, month, page, callback) {
   var role = $('.list_box').attr('role');
   var itype = parseInt($('.nav_option.active').attr('value'));
-  var url = (role == 'family' ? '/family_account_detail/' : '/user_account_detail/');
+  var url = (role == 'family' ? 'http://s.chengxinxitong.com/app1.0.0/getFamilyAccountListData.action' : 'http://s.chengxinxitong.com/app1.0.0/getPersonalAccountListData.action');
   post(url, {'identify' : get_identify_safe(), 'year' : year, 'month' : month, 'type' : itype, 'page' : page}, function(resp) {
+    var resp = eval('(' + resp + ')')
     if (resp['errno'] != 0 && 'error' in resp) {
       alert(resp['error']);
       return false;
@@ -88,8 +89,8 @@ var get_data_from_server = function(year, month, page, callback) {
       var new_item = $(ITEM_STR);
       new_item.children('.item_name_line').children('.left_item').text(item['name']);
       new_item.children('.item_name_line').children('.right_item').text(item['time']);
-      new_item.children('.item_balance_line').children('.left_item').text(item['balance'].toFixed(2));
-      new_item.children('.item_balance_line').children('.right_item').text((item['money'] > 0 ? '+' : '') + item['money'].toFixed(2));
+      new_item.children('.item_balance_line').children('.left_item').text(item['balance']);
+      new_item.children('.item_balance_line').children('.right_item').text((item['money'] > 0 ? '+' : '') + item['money']);
       $('.list').append(new_item);
     }
     if (callback) callback();
