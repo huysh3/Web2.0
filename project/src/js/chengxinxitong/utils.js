@@ -20,7 +20,8 @@ var get_verify_code = function(btn) {
     var params = {};
     params['mobile'] = $('input[name="phone"]').val();
     params['type'] = 0;
-    post('/verify/', params, function(resp) {
+    post('http://s.chengxinxitong.com/app1.0.0/sendVerifyCode.action', params, function(resp) {
+      var resp = eval('(' + resp + ')')
       if (resp['errno'] != 0 && 'error' in resp) {
         alert(resp['error']);
         reactive($(this));

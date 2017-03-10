@@ -56,7 +56,7 @@ var init_digit = function() {
     // 获取家庭账户
     $('.app_container[role="family_account"] .app_hint').text(resp['family_money']);
     $('.app_container[role="user_account"] .app_hint').text(resp['personal_money']);
-    $('.app_container[role="today_income"] .app_hint').text(resp['personal_today']);
-    $('.app_container[role="today_clock_in"] .app_hint').text(resp['sign_money']);
+    $('.app_container[role="treasure"] .app_hint').text(resp['personal_today']);
+    $('.app_container[role="clock_in"] .app_hint').text(resp['sign_money']);
   })
 }

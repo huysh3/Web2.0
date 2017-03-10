@@ -47,21 +47,19 @@
     methods: {
       sendFeedBack() {
         var _this = this
-        var params = new URLSearchParams();
-        params.append('identify', _identify)
-        params.append('content', this.inputContact)
-        params.append('contact', this.inputContent)
-        axios.post('http://s.chengxinxitong.com/app1.0.0/sendUserFeedback.action', params)
-          .then(function (response) {
-            if (response.data.errno == '0') {
-              alert('提交成功!')
-            } else {
-              alert(response.data.error)
-            }
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        var params = {
+          'identify': _identify,
+          'content': this.inputContact,
+          'contact': this.inputContent
+        }
+        post('http://s.chengxinxitong.com/app1.0.0/sendUserFeedback.action', params, function(resp) {
+          var resp = eval('(' + resp + ')')
+          if (resp['errno'] == '0') {
+            alert('提交成功！')
+          } else {
+            alert(resp['error']);
+          }
+        })
       },
     }
   })

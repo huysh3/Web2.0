@@ -76,16 +76,17 @@
       methods: {
         getUserInfo: function() {
           var _this = this
-          var params = new URLSearchParams();
-          params.append('identify', _identify)
-          axios.post('http://s.chengxinxitong.com/app1.0.0/getUserInfoData.action', params)
-            .then(function (response) {
-              console.log(response.data.logo);
-              _this.userInfo = response.data
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+          var params = {
+            'identify': _identify
+          }
+          post('http://s.chengxinxitong.com/app1.0.0/getUserInfoData.action', params, function(resp) {
+            var resp = eval('(' + resp + ')')
+            if (resp['errno'] == '0') {
+              _this.userInfo = resp
+            } else {
+              alert(resp['error']);
+            }
+          })
         },
       }
     })

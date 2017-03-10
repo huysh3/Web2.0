@@ -13,12 +13,13 @@ var listen_regist = function() {
       return false;
     }
     params['code'] = $('input[name="verify_code"]').val();
-    post('/regist/', params, function(resp) {
-      if ('error' in resp) {
-        alert(resp['error']);
-      }
+    post('http://s.chengxinxitong.com/app1.0.0/regUserInfo.action', params, function(resp) {
+      var resp = eval('(' + resp + ')')
       if (resp['errno'] == 0) {
-        window.location.href = "/login/";
+        alert('注册成功！')
+        window.location.href = "login.html";
+      } else {
+        alert(resp['error']);
       }
     });
   });

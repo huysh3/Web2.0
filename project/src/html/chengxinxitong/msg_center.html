@@ -50,54 +50,50 @@
       },
       methods: {
         getMsgList: function() {
-          var _this = this
-          var params = new URLSearchParams();
-          params.append('identify', _identify)
-          axios.post('http://s.chengxinxitong.com/app1.0.0/getUserMessageListData.action', params)
-            .then(function (response) {
-              _this.msgList = response.data.list
-
+            var _this = this
+            var params = { 'identify': _identify }
+            post('http://s.chengxinxitong.com/app1.0.0/getUserMessageListData.action', params, function(resp) {
+              var resp = eval('(' + resp + ')')
+              if (resp['errno'] == '0') {
+                _this.msgList = resp['list']
+              } else {
+                alert(resp['error']);
+              }
             })
-            .catch(function (error) {
-              console.log(error);
-            });
         },
         setMsgRead: function(msg_id, $event) {
           var _this = this
-          var params = new URLSearchParams();
-          params.append('identify', _identify)
-          params.append('id', msg_id)
-          axios.post('http://s.chengxinxitong.com/app1.0.0/setUserMessageRead.action', params)
-            .then(function (response) {
-              if (response.data.errno == '0') {
-                $("div[data-id='" + msg_id + "'] img").attr('src', '../../img/图标/消息icon.png')
-              }
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+          var params = {
+            'identify': _identify,
+            'id': msg_id
+          }
+          post('http://s.chengxinxitong.com/app1.0.0/setUserMessageRead.action', params, function(resp) {
+            var resp = eval('(' + resp + ')')
+            if (resp['errno'] == '0') {
+              $("div[data-id='" + msg_id + "'] img").attr('src', '../../img/图标/消息icon.png')
+            } else {
+              alert(resp['error']);
+            }
+          })
         },
         deleteMsgs() {
           var _this = this
-          var params = new URLSearchParams();
           this.msgId = this.msgList.map(function(item) {
             return item.id
           })
-          params.append('identify', _identify)
-          params.append('id', this.msgId.join(','))
-          axios.post('http://s.chengxinxitong.com/app1.0.0/delUserMessage.action', params)
-            .then(function (response) {
-              if (response.data.errno == '0') {
-                _this.msgList = ''
-                alert('操作成功！')
-              } else {
-                alert(response.data.error)
-              }
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-          console.log(this.msgId.join(','))
+          var params = {
+            'identify': _identify,
+            'id': this.msgId.join(',')
+          }
+          post('http://s.chengxinxitong.com/app1.0.0/delUserMessage.action', params, function(resp) {
+            var resp = eval('(' + resp + ')')
+            if (resp['errno'] == '0') {
+              _this.msgList = ''
+              alert('清除成功!')
+            } else {
+              alert(resp['error']);
+            }
+          })
         }
       }
     })

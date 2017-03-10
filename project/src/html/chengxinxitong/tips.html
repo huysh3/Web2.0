@@ -45,18 +45,17 @@
     methods: {
       getTips() {
         var _this = this
-        var params = new URLSearchParams();
-        params.append('identify', _identify)
-        axios.post('http://s.chengxinxitong.com/app1.0.0/getQuestionListData.action', params)
-          .then(function (response) {
-            if (response.data.errno == 0) {
-              _this.lists = response.data.list
-            } else {
-              alert(response.data.error)
-            }
-          })
-          .catch(function (error) {
-          });
+        var params = {
+          'identify': _identify
+        }
+        post('http://s.chengxinxitong.com/app1.0.0/getQuestionListData.action', params, function(resp) {
+          var resp = eval('(' + resp + ')')
+          if (resp['errno'] == '0') {
+            _this.lists = resp['list']
+          } else {
+            alert(resp['error']);
+          }
+        })
       },
     }
   })
