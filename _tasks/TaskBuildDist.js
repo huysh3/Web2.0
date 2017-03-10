@@ -177,7 +177,7 @@ module.exports = function (gulp, config) {
     function reversion(cb) {
         var revAll = new RevAll({
             fileNameManifest: 'manifest.json',
-            dontRenameFile: ['.html', '.php']
+            dontRenameFile: ['.php']
         });
 
         if (config['reversion']) {
@@ -280,4 +280,3 @@ module.exports = function (gulp, config) {
         loadPlugin
     ));
 };
-
