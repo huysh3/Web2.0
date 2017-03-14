@@ -5,8 +5,8 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="stylesheet" href="../../css/style-chengxintong.css">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <script src="../../js/chengxinxitong/axios.min.js"></script>
+    <script src="../../js/chengxinxitong/vue.min.js"></script>
     <title>意见反馈</title>
   </head>
   <body>
@@ -17,8 +17,8 @@
       </header>
       <div class="list-content">
         <div class="list-item" v-for="item in lists">
-          <p class="title">{{ item.title }}</p>
-          <section class="content">
+          <p @click="showContent(item.id)" class="title">{{ item.title }}</p>
+          <section :id="item.id" class="content">
             <p>问题详情</p>
             {{ item.content }}
           </section>
@@ -26,7 +26,7 @@
       </div>
     </div>
   </body>
-  <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script src="../../js/chengxinxitong/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="../../js/chengxinxitong/utils.js"></script>
   <script type="text/javascript" src="../../js/chengxinxitong/jquery.cookie.js"></script>
   <script type="text/javascript">
@@ -43,6 +43,10 @@
       this.getTips()
     },
     methods: {
+      showContent(id) {
+        $('.content').removeClass('active')
+        $('#' + id).addClass('active')
+      },
       getTips() {
         var _this = this
         var params = {

@@ -5,13 +5,14 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="stylesheet" href="../../css/style-chengxintong.css">
-    <title>个人中心</title>
+    <title>个人账户</title>
   </head>
   <body>
     <div class="personal-center-container">
       <header>
         <a href="javascript:history.back();"><img class="back-btn" src="../../img/图标/返回.png" alt=""></a>
-        个人中心
+        个人账户
+        <!-- <a href="" class="right-btn"><img src="../../img/图标/" class="right-btn" @click="deleteMsgs"></img></a> -->
       </header>
       <section class="main-content">
         <section class="top-content">
@@ -31,7 +32,7 @@
               <span class="right-part"><img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
             </div>
           </a>
-          <a href="sign_income.html">
+          <a href="clock_in.html">
             <div class="table-cell">
               <span class="left-part"><img class="table-cell-icon" src="../../img/图标/今日签到.png" alt="">每日签到</span>
               <span class="right-part"><img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
@@ -43,9 +44,15 @@
               <span class="right-part"><img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
             </div>
           </a>
-          <a href="family_account_detail.html">
+          <a href="family_account_balance.html">
             <div class="table-cell">
               <span class="left-part"><img class="table-cell-icon" src="../../img/图标/家庭账户.png" alt="">家庭账户</span>
+              <span class="right-part"><img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
+            </div>
+          </a>
+          <a href="user_account.html">
+            <div class="table-cell">
+              <span class="left-part"><img class="table-cell-icon" src="../../img/图标/个人账户.png" alt="">个人账户</span>
               <span class="right-part"><img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
             </div>
           </a>
@@ -60,4 +67,8 @@
       </section>
     </div>
   </body>
+  <script type="text/javascript" src="../../js/chengxinxitong/jquery-2.1.1.min.js"></script>
+  <script>
+    $('.avatar').attr('src', window.localStorage.logo)
+  </script>
 </html>

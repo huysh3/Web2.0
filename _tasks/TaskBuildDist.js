@@ -251,9 +251,7 @@ module.exports = function (gulp, config) {
                 cb();
             }
         }
-
     }
-
 
     //加载插件
     function loadPlugin(cb) {
@@ -274,7 +272,6 @@ module.exports = function (gulp, config) {
             uglifyJs
         ),
         compileHtml,
-        reversion,
         supportWebp(),
         findChanged,
         loadPlugin

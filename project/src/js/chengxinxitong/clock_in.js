@@ -2,13 +2,15 @@ $(document).ready(function() {
   init_calendar();
   change_month();
   close_success_msg();
-  // go_clock_in();
   init_data();
+  $('.banner_title').on('tap', function() {
+      go_clock_in();
+  })
 });
 
 var go_clock_in = function() {
-  var resp = eval('(' + resp + ')')
   post('http://s.chengxinxitong.com/app1.0.0/sendUserSign.action', {'identify' : get_identify_safe()}, function(resp) {
+    var resp = eval('(' + resp + ')')
     if (resp['errno'] != 0 && 'error' in resp) {
       alert(resp['error']);
       return false;
@@ -99,8 +101,13 @@ var init_data = function() {
       alert(resp['error']);
       return false;
     }
-    if (resp['sign_state'] == 0) {
-      go_clock_in();
+    if (resp['sign_state'] != 0) {
+      $('.banner_title').text('已签到')
+      $('.banner_title').css('border', '0.25rem solid #999')
+      $('.banner_title').css('color', '#999')
+      $('.banner_title').addClass('disabled')
+    } else {
+
     }
     $('.today_clock_in_num').text('今日签到人数：' + resp['sign_nums']);
     $('.has_clock_in_num .num').text(resp['sign_days']);

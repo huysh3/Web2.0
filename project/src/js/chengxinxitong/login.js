@@ -3,6 +3,9 @@ $(document).ready(function() {
     var params = {};
     params['mobile'] = $('input[name="phone"]').val();
     params['password'] = $('input[name="password"]').val();
+    if (!checkMobile($('input[name="phone"]').val())) {
+      return false;
+    }
     post('http://s.chengxinxitong.com/app1.0.0/checkUserLogin.action', params, function(resp) {
       var res = eval('(' + resp + ')')
       console.log(res['errno'])
@@ -10,7 +13,18 @@ $(document).ready(function() {
         var identify = res['identify'];
         $.cookie('identify', identify, {path: '/'});
         window.location.href = "home.html";
+      } else {
+        alert(res['error'])
       }
     });
   });
 });
+
+function checkMobile(sMobile){
+    if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(sMobile))){
+      alert('请填写正确电话号码')
+      return false;
+    } else {
+      return true;
+    }
+}

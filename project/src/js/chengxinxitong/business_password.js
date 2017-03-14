@@ -4,6 +4,9 @@ $(document).ready(function() {
     if ($(this).hasClass('disable')) {
       return false;
     }
+    if (!checkMobile($('input[name="phone"]').val())) {
+      return false;
+    }    
     $(this).addClass('disable');
     wait_for_reactive($(this), 60);
     var params = {};
@@ -28,6 +31,9 @@ var listen_find = function() {
       alert('密码与确认密码不一致');
       return false;
     }
+    if (!checkMobile($('input[name="phone"]').val())) {
+      return false;
+    }
     params['code'] = $('input[name="verify_code"]').val();
     post('http://s.chengxinxitong.com/app1.0.0/resetUserPayword.action', params, function(resp) {
       var resp = eval('(' + resp + ')')
@@ -39,4 +45,13 @@ var listen_find = function() {
       }
     });
   });
+}
+
+function checkMobile(sMobile){
+    if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(sMobile))){
+      alert('请填写正确电话号码')
+      return false;
+    } else {
+      return true;
+    }
 }

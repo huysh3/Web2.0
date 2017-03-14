@@ -5,14 +5,26 @@ var post = function(url, data, callback) {
     type : 'POST',
     success : callback,
     error: function() {
-      alert('系统升级中，请求失败');
+      alert('网络连接异常，请检查网络设置');
     }
   });
+}
+
+function checkMobile(sMobile){
+    if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(sMobile))){
+      return false;
+    } else {
+      return true;
+    }
 }
 
 var get_verify_code = function(btn) {
   btn.on('tap', function() {
     if ($(this).hasClass('disable')) {
+      return false;
+    }
+    if (!checkMobile($('input[name="phone"]').val())) {
+      alert('请填写正确电话号码')
       return false;
     }
     $(this).addClass('disable');

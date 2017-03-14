@@ -53,6 +53,7 @@ var init_digit = function() {
       alert(resp['error']);
       return false;
     }
+    window.localStorage.logo = resp['logo']
     // 获取家庭账户
     $('.app_container[role="family_account"] .app_hint').text(resp['family_money']);
     $('.app_container[role="user_account"] .app_hint').text(resp['personal_money']);

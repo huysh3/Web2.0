@@ -6,9 +6,9 @@ $(document).ready(function() {
       return false;
     }
     $('.banner_num').text(resp['family_planning']);
-    $('div[role="family_yestoday"]').text(resp['family_yestoday']);
-    $('font[role="family_today"]').text(resp['family_today']);
-    if (resp['family_today'] >= resp['family_yestoday']) {
+    $('div[role="personal_yestoday"]').text(resp['personal_yestoday']);
+    $('font[role="personal_today"]').text(resp['personal_today']);
+    if (resp['personal_today'] > resp['personal_yestoday']) {
       $('.tendency_up').addClass('active');
     } else {
       $('.tendency_down').addClass('active');

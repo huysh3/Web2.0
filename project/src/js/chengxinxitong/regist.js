@@ -3,6 +3,7 @@ $(document).ready(function() {
   get_verify_code($('.verify_btn'));
 });
 
+
 var listen_regist = function() {
   $('.regist_btn').on('tap', function() {
     var params = {};

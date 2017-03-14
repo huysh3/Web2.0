@@ -12,6 +12,15 @@
   url('//at.alicdn.com/t/font_61rwp4b2uom3g14i.svg#iconfont') format('svg');
 }
 
+a {
+  text-decoration: none !important;
+}
+
+a:active,
+a:hover {
+  text-decoration: none !important;
+}
+
 body {
   margin: 0;
 }
@@ -33,8 +42,8 @@ textarea {
 .table-cell {
   background-color: #fff;
   width: 100%;
-  height: 2rem;
-  line-height: 2rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
   font-size: .6rem;
   color: #333;
   border-bottom: 1px solid #f2f2f2;
@@ -113,14 +122,14 @@ header {
   background-color: #fff;
   color: #5b5b5b;
   .back-btn {
-    height: 1.5rem;
+    height: 1rem;
     position: absolute;
     top: 50%;
     left: .7rem;
     transform: translate(0, -50%);
   }
   .right-btn {
-    height: 1.5rem;
+    height: 1rem;
     position: absolute;
     top: 50%;
     right: .7rem;
@@ -338,8 +347,8 @@ header {
   }
   .logout-btn {
     background-color: #fff;
-    height: 1.5rem;
-    line-height: 1.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
     margin-top: .5rem;
     font-size: .7rem;
     color: #999;
@@ -389,7 +398,7 @@ header {
   background-color: #f0f0f0;
   min-height: 100vh;
   .right-btn {
-    line-height: 1.5rem;
+    line-height: 1rem;
     border: 1px solid #666;
     border-radius: .1rem;
     font-size: .7rem;
@@ -425,10 +434,15 @@ header {
     font-size: .7rem;
     background-color: #ccc;
     border-radius: .2rem;
-    padding: .7rem;
+    height: 0;
+    overflow: hidden;
     p {
       margin: 0;
       margin-bottom: .4rem;
     }
+  }
+  .content.active {
+    padding: .7rem;
+    height: auto;
   }
 }

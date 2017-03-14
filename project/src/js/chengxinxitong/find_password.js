@@ -4,6 +4,9 @@ $(document).ready(function() {
     if ($(this).hasClass('disable')) {
       return false;
     }
+    if (!checkMobile($('input[name="phone"]').val())) {
+      return false;
+    }
     $(this).addClass('disable');
     wait_for_reactive($(this), 60);
     var params = {};
@@ -39,4 +42,13 @@ var listen_find = function() {
       }
     });
   });
+}
+
+
+function checkMobile(sMobile){
+    if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(sMobile))){
+      return false;
+    } else {
+      return true;
+    }
 }
