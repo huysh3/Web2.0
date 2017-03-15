@@ -6,6 +6,10 @@ $(document).ready(function() {
     if (!checkMobile($('input[name="phone"]').val())) {
       return false;
     }
+    if (!params['mobile'] || !params['password']) {
+      alert('请填写全部信息！')
+      return false;
+    }
     post('http://s.chengxinxitong.com/app1.0.0/checkUserLogin.action', params, function(resp) {
       var res = eval('(' + resp + ')')
       console.log(res['errno'])

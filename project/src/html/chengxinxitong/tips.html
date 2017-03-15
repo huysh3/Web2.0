@@ -44,8 +44,12 @@
     },
     methods: {
       showContent(id) {
-        $('.content').removeClass('active')
-        $('#' + id).addClass('active')
+        if ($('#' + id).hasClass('active')) {
+          $('.content').removeClass('active')
+        } else {
+          $('.content').removeClass('active')
+          $('#' + id).addClass('active')
+        }
       },
       getTips() {
         var _this = this

@@ -12,12 +12,12 @@
       <header>
         <a href="javascript:history.back();"><img class="back-btn" src="../../img/图标/返回.png" alt=""></a>
         个人中心
-        <!-- <a href="" class="right-btn"><img src="../../img/图标/" class="right-btn" @click="deleteMsgs"></img></a> -->
+        <a href="about.html" class="right-btn"><img src="../../img/图标/关于我们.png" class="right-btn" @click="deleteMsgs"></img></a>
       </header>
       <section class="main-content">
         <section class="top-content">
           <img class="avatar" src="../../img/图标/个人中心封面.jpg" alt="">
-          <p class="name">诚信平台</p>
+          <p class="name"></p>
         </section>
         <section class="table-cell-content">
           <a href="msg_center.html">
@@ -70,5 +70,6 @@
   <script type="text/javascript" src="../../js/chengxinxitong/jquery-2.1.1.min.js"></script>
   <script>
     $('.avatar').attr('src', window.localStorage.logo)
+    $('.name').html(window.localStorage.name)
   </script>
 </html>

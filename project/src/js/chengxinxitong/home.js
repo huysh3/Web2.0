@@ -2,6 +2,21 @@ $(document).ready(function() {
   init_banner();
   init_msg();
   init_digit();
+  post('http://s.chengxinxitong.com/app1.0.0/getUserInfoData.action', {'identify' : get_identify_safe()}, function(resp) {
+    var resp = eval('(' + resp + ')')
+    if (resp['errno'] != 0 && 'error' in resp) {
+      alert(resp['error']);
+      return false;
+    }
+    if (resp['sign_state'] != 0) {
+      $('#clock_in .app_title').html('已签到')
+    } else {
+
+    }
+  })
+  $('#clock_in').on('tap', function() {
+      go_clock_in();
+  })
 });
 
 var init_banner = function() {
@@ -46,6 +61,19 @@ var init_msg = function() {
   });
 }
 
+var go_clock_in = function() {
+  post('http://s.chengxinxitong.com/app1.0.0/sendUserSign.action', {'identify' : get_identify_safe()}, function(resp) {
+    var resp = eval('(' + resp + ')')
+    if (resp['errno'] != 0 && 'error' in resp) {
+      alert(resp['error']);
+      return false;
+    }
+    $('.income_box').text('激活 ' + resp['money'] + ' 个诚信币');
+    $('.msg_box').text(resp['message']);
+    $('.success_clock_in_msg').show();
+  });
+}
+
 var init_digit = function() {
   post('http://s.chengxinxitong.com/app1.0.0/getUserInfoData.action', {'identify' : get_identify_safe()}, function(resp) {
     var resp = eval('(' + resp + ')')
@@ -54,6 +82,7 @@ var init_digit = function() {
       return false;
     }
     window.localStorage.logo = resp['logo']
+    window.localStorage.name = resp['name']
     // 获取家庭账户
     $('.app_container[role="family_account"] .app_hint').text(resp['family_money']);
     $('.app_container[role="user_account"] .app_hint').text(resp['personal_money']);
