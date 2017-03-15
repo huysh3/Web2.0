@@ -18,7 +18,7 @@
       </header>
       <section class="main-content">
         <div class="msg-cell-content" v-show="msgList.length != 0">
-          <div class="msg-cell" v-for="item in msgList" :data-id="item.id" @click="setMsgRead(item.id, $event, item.type)">
+          <div class="msg-cell" v-for="item in msgList" :id="item.id" :data-id="item.id" data-state="true" @click="setMsgRead(item.id, $el, item.type)">
             <img v-show="item.type == 1" class="msg-cell-avatar" src="../../img/图标/消息icon.png" alt="">
             <img v-show="item.type == 0" class="msg-cell-avatar" src="../../img/图标/消息icon-active.png" alt="">
             <div class="text-content">
@@ -66,7 +66,7 @@
               }
             })
         },
-        setMsgRead: function(msg_id, $event, type) {
+        setMsgRead: function(msg_id, $el, type) {
           var _this = this
           var params = {
             'identify': _identify,
@@ -75,10 +75,15 @@
           if (type == 1) {
             return false;
           }
+          if ($('#' + msg_id).attr('data-state') == "true") {
+          } else {
+            return false;
+          }
           post('http://s.chengxinxitong.com/app1.0.0/setUserMessageRead.action', params, function(resp) {
             var resp = eval('(' + resp + ')')
             if (resp['errno'] == '0') {
               $("div[data-id='" + msg_id + "'] img").attr('src', '../../img/图标/消息icon.png')
+              $('#' + msg_id).attr('data-state', 'false')
             } else {
               alert(resp['error']);
             }

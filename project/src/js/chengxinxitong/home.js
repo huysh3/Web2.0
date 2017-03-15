@@ -2,6 +2,9 @@ $(document).ready(function() {
   init_banner();
   init_msg();
   init_digit();
+  $('.close_btn').on('tap', function() {
+    $('.success_clock_in_msg').hide();
+  });
   post('http://s.chengxinxitong.com/app1.0.0/getUserInfoData.action', {'identify' : get_identify_safe()}, function(resp) {
     var resp = eval('(' + resp + ')')
     if (resp['errno'] != 0 && 'error' in resp) {
