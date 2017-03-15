@@ -14,6 +14,7 @@
       <header>
         <a href="home.html"><img class="back-btn" src="../../img/图标/返回.png" alt=""></a>
         签到明细收益
+        <a class="right-btn"><img @click="chooseMonth" src="../../img/图标/搜索.png" class="right-btn"></img></a>
       </header>
       <section class="main-content">
         <p class="title">12月签到</p>
@@ -63,6 +64,28 @@
             console.log(error);
           });
       },
+      chooseMonth() {
+        var _this = this
+        var year_month_str = prompt('请以yyyy mm的形式输入待查询月份：');
+        var params = new FormData()
+        params.append('identify', _identify)
+        params.append('year', year_month_str.split(' ')[0])
+        params.append('month', year_month_str.split(' ')[1])
+        if (year_month_str.split(' ')[1] < 1 || year_month_str.split(' ')[1] > 12 || year_month_str.split(' ')[0] < 0) {
+          alert('请输入正确的时间');
+          return false;
+        }
+        axios.post('http://s.chengxinxitong.com/app1.0.0/getSignRevenueListData.action', params)
+          .then(function (response) {
+            if (response.data.errno == 0) {
+              _this.showList = response.data.list
+            } else {
+              alert(response.data.error)
+            }
+          })
+          .catch(function (error) {
+          });
+      }
     }
   })
   </script>
